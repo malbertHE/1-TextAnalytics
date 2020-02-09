@@ -80,7 +80,51 @@ A példa nem túl bonyolult, így a bonyolultsága nem vonja el a fókuszt a vá
  - Felhasználói igény merül fel cserélhető logikára. Második verzió: Product\MAF.Entropy.Console2
  - 2000-es évek közepe. Piaci igény merül fel a cserélhető felületre. Harmadik verzió: Product\MAF.Entropy.WPF
  - 2000-es évek második fele. Piaci igény merül fel szolgáltatás orientációra. Negyedik verzió: Product\MAF.Entropy.
- 
+
+## Felhasznált eszközök
+
+Bármilyen fejlesztésbe is fogjunk bele, az első dolgunk az lesz, hogy eldöntjük, milyen eszközöket akarunk felhasználni. A felhasználni kívánt programozási nyelv vagy nyelvek és az azokhoz választott fejlesztőeszközökön kívül szükségünk lehet további eszközökre is. Ebben a fejezetben áttekintjük, hogy milyen eszközöket fogunk felhasználni ezeknél a projekteknél.
+
+### Verziókövető
+
+A forrásokat és egyéb erőforrás fájlokat már évtizedek óta verziókövető rendszerekben tartunk. Ennek fontosságára nem térek ki, ma már minden fejlesztő tudja, hogy e nélkül nem szabad elkezdeni fejleszteni. Az, hogy milyen verziókövető rendszereket használunk az szintén egy eldöntendő kérdés.
+
+>Megjegyzés: Természetesen a GitHub verziókezelőt fogom használni, hiszen itt vannak a projektek bemutatva, de fontos lehet egy fejlesztőnek legalább azt tudnia, hogy régebbi projektek esetén milyen verziókezelőkkel találkozhatnak még.
+
+Lássuk, hogy a 2000-es évek elején milyen lehetőségeink voltak, a teljesség igénye nélkül.
+
+#### [Microsoft Visual SourceSafe](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/ms950420(v=msdn.10)?redirectedfrom=MSDN)
+
+A Microsoft verziókövető rendszere volt. Ma már nem támogatják. Eredetileg nem saját fejlesztés volt, hanem egy Észak-karolinai cég által fejlesztett verziókövető rendszer volt, melyet a Microsoft felvásárolt. A felvásárlás után a Microsoft leállította a saját verziókövető rendszerének fejlesztését, melynek neve [Microsoft Delta](https://winworldpc.com/product/microsoft-delta/10).
+
+A 2002 és 2006 között volt alkalmam a Visual SourceSafe verziókezelőt használni a napi munkám során. Delphi kódok verziókezelésére használtuk. 
+
+Mivel a támogatása megszűnt, így ezzel az eszközzel nem foglalkozunk tovább. 
+
+>Megjegyzés: Ismét láthattunk két példát olyan fejlesztésekre, melyeket ma már nem támogatnak. Egy verziókövető rendszerről átállni egy másikra nem okoz olyan nagy problémát, de a fejlesztésükbe beleölt idő valamint az eszközöket használó sok ezer cég átállásba fektetett ideje összességében már nem kevés. Nagyon sok ilyen projekt volt, van és lesz. Ezeknek a munkaóráknak a száma még akkor is a szoftverválságot erősíti, ha maguk a projektek valójában nyereségesek voltak.
+
+#### Concurrent Versions System [(CVS)](http://savannah.nongnu.org/project/memberlist.php?detailed=1&group=cvs)
+
+Egy a 90-es években népszerű verziókezelő volt. Ma már nem fejlesztik, legutóbbi stabil kiadása 2005-ben volt, ennek ellenére még 2011-ben is javítottak hibát benne. A CVS fontos mérföldkő volt a verziókezelők történetében, számos más verziókezelő alapjaként szolgált, mint például az SVN. 
+
+Mivel nem fejlesztik jelenleg, így őt is elavult technológiának tekinthetjük, ráadásul számos hibája volt, melyeket az SVN-ben javítottak.
+
+#### Apache Subversion [(SVN)](http://subversion.apache.org/)
+
+A 2000-es években kezdte el fejleszteni a CollabNet. Nagy népszerűségnek örvendett, számos kliens készült hozzá, mint például a [TortoiseSVN](https://tortoisesvn.net/). A mai napig is sokan használják, én is több mint 10 évig használtam. A GitHub megjelenése óta egyre kevesebb projekthez használják verziókezelőként.
+
+#### [Git](https://git-scm.com/)
+
+A verziókezelőt [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) hozta létre 2005-ben. Linux kernelek fejlesztéséhez használták. A Git ingyenes és nyílt forráskódú rendszer. Számos verziókezelőt építettek Git alapokra, többek között a GitHub verziókezelőt is.
+
+#### [GitHub](https://github.com/)
+
+A GitHub egy Git alapú verziókezelő rendszer. A verziókezelésen kívül más szolgáltatásokat is nyújt, mint például projekt kezelés, ahol megajánlott vagy magunk által készített egyedi kanbantáblát készíthetünk a projekt kezelésére. 
+
+A GitHub 2008 februárjában indult el. 2018-ban a Microsoft felvásárolta. Jelenleg a világ legnagyobb kódgyűjteményét tartalmazza.
+
+A projektek elkészítéséhez nem csak a verziókezelő szoltáltatást fogom használni. Igyekszem kihasználni és bemutatni a GihHub jelenlegi szolgáltatásait. Ezt egy külön mellékletben teszem meg.
+
 ## Megoldások
 
 Az egyes megoldásokat és a hozzájuk tartozó magyarázatokat, technológiai elemzéseket lásd a fent felsorolt verziók hivatkozásainál.
