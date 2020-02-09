@@ -1,23 +1,58 @@
 # Programozási környezetek és technológiák bemutatása
 
 Ebben a dolgozatban programozási környezetek és technológiák bemutatására törekedtem, entrópia számítás algoritmusokon keresztül, időrendben bemutatva az egyes alkalmazásokat, egy fiktív cég segítségével. A dolgozat egy program lehetséges életútját járja be.
+
 Cél a technológiák és környezetek egy szélesebb körének feltérképezése, program tervezési szempontokat figyelembe véve.
+
+## Bevezető megjegyzések
+
+A dolgozatban visszatekintünk régebbi technológiákra is. Tesszük ezt azért, mert példaként vizsgálhatjuk meg őket és segítségükkel következtetéseket vonhatunk le, akár úgy is, hogy párhuzamot vonunk egyes mai technológiákkal. Fontos látnunk a múltból legalább azokat a részeket, amik elvezettek a jelenhez, hogy minél pontosabb következtetéseket vonhassunk le a jövőt illetően. 
+
+A dolgozatnak viszont nem célja teljes és pontos képet festeni egyes technológiákról és azok életútjáról, csupán annyi szerepük van, hogy felhívják a figyelmet arra, hogy esetenként milyen fontos lehet ezek ismerete is. Természetesen itt szoftveres példák kerülnek bemutatásra, de a hardveres technológia fejlődése egy-egy nagyobb projket megtervezésekor szintén fontos tényező.
+
+A példák azért C# nyelven keresztül vannak bemutatva, mert ez egy nagyon könnyen tanulható, aktuális technológia. 
+
+>Megjegyzés: Egyszerű elemi algoritmusok bemutatására, amikor a cél csupán az algoritmus működésének vizsgálata és megértése, az egyik legcélszerűbb nyelv a Pascal, ami gyakorlatilag angol nyelvű pszeudokód.
+
+A C# azért is alkalmas a példaprogramok bemutatására, mert segítségével könnyen megérthető technológiai problémákat tudunk felvázolni és ezt a tapasztalatot felhasználva képesek lehetünk más területeken is kamatoztatni.
 
 ## Megoldandó probléma
 
-Annak bemutatása, hogyan lehetséges a lehető legkevesebb anyagi ráfordítással, a már megírt kódok újrafelhasználásával egy választott kezdeti programozási környezetet továbbfejleszteni, az újonnan megjelenő technológiákat figyelembe véve. Másképpen fogalmazva, egy fejlesztő cég, hogyan képes a piacon maradni hosszú távon, figyelembe véve, hogy ezen a területen a technológiai fejlődés követése kisebb fejlesztő cégek esetében igen nehéz. Itt több probléma is felmerül. Az egyik fontos probléma a fejlesztők szakmai tudásának gyors elavulása, ami továbbképzéssel orvosolható. Egy másik probléma az eszközpark gyors elavulása. Ez a két probléma végső soron anyagi terhet jelent a cégeknek. Itt rossz döntés lehet a cég szempontjából, ha ezeken ésszerűtlenül próbál spórolni. A legnagyobb problémát mégsem ezek jelentik. A legnagyobb gond a felgyorsult világban az azonnali reagálás lehetősége. Ma már minden szoftverfejlesztő cég igyekszik minél jobban elmozdulni az agilis fejlesztés irányába. Ez pontosan annak a következménye, hogy szükséges a gyors reakció a piacon maradás esélyének növeléséhez. A dolgozat pontosan ezt próbálja körbe járni, miközben igyekszik bemutatni a felmerülő problémákra olyan megoldásokat, melyeket a gyakorlatban is lehet használni, éppen ezért a dolgozat gerincét a teszt vezérelt fejlesztés fogja adni.
+Annak bemutatása, hogyan lehetséges a lehető legkevesebb anyagi ráfordítással, a már megírt kódok újrafelhasználásával egy választott kezdeti programozási környezetet továbbfejleszteni, az újonnan megjelenő technológiákat figyelembe véve. Másképpen fogalmazva, egy fejlesztő cég, hogyan képes a piacon maradni hosszú távon, tudva, hogy ezen a területen a technológiai fejlődés követése kisebb fejlesztő cégek esetében igen nehéz. Itt több probléma is felmerül. Az egyik fontos probléma a fejlesztők szakmai tudásának gyors elavulása, ami továbbképzéssel orvosolható. Egy másik probléma az eszközpark gyors elavulása. Ez a két probléma végső soron anyagi terhet jelent a cégeknek. Itt rossz döntés lehet a cég szempontjából, ha ezeken ésszerűtlenül próbál spórolni. A legnagyobb problémát mégsem ezek jelentik. A legnagyobb gond a felgyorsult világban az azonnali reagálás lehetősége. Ma már minden szoftverfejlesztő cég igyekszik minél jobban elmozdulni az agilis fejlesztés irányába. Ez pontosan annak a következménye, hogy szükséges a gyors reakció a piacon maradás esélyének növeléséhez. A dolgozat pontosan ezt próbálja körbe járni, miközben igyekszik bemutatni a felmerülő problémákra olyan megoldásokat, melyeket a gyakorlatban is lehet használni, éppen ezért a dolgozat gerincét a teszt vezérelt fejlesztés fogja adni.
 
 ## A probléma részletezése
 
 Ahhoz, hogy be tudjam mutatni viszonylag élethűen technológiák és környezetek egy szélesebb körét, program tervezési szempontokat figyelembe véve, létrehozok egy életszerű történetet egy fiktív cégről. A cég neve a történet szempontjából lényegtelen, ezért legyen a neve: Inessential Kft.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>
 
-A cégünk története induljon a 90-es évek elejétől, mégpedig egy garázscégből. Mivel a helyes megoldások bemutatására törekszem, ezért az Inessential Kft. fejlesztői tisztában vannak a szükséges programfejlesztési technológiákkal, így a projekt a szükséges igény leírásokkal és tervekkel készül el.
+A cégünk története induljon a 2000-es évek elejétől, mégpedig egy garázscégből. Mivel a helyes megoldások bemutatására törekszem, ezért az Inessential Kft. fejlesztői tisztában vannak a szükséges programfejlesztési technológiákkal, így a projekt a szükséges igény leírásokkal és tervekkel készül el.
 
 > **Megjegyzés:** A projektek nem minden esetben készülnek el a megfelelő minőségben. Mivel egy program tervezőnek azzal is tisztában kell lennie, hogyan lehet egy félresiklott projektet megpróbálni visszarántani a helyes útra ezért ezt két külön példaprogramban elemezzük. Ez egy fontos probléma! Nagyon sok futó projekt van, ami refaktorálásra szorul és az ilyen projekteket rendbe rakni a legtöbb esetben igen nagy kihívást jelent. Ezeket a problémákat járjuk körben az adott példaprogramokban.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>
 
 ### A probléma kialakulása
 
-A 90-es évek elején az Inessential Kft. készített egy sikeres szoftvert, amit értékesített. Az internet hajnalán a szoftverek értékesítése jellemzően CD lemezeken történt. Tételezzük fel továbbá azt, hogy a szoftver elkészülte után a fejlesztők többségét költségcsökkentés címén elbocsátották és csak annyi fejlesztőt hagytak meg amennyi az aktuálisan felmerülő problémák, jellemzően hibák, megoldásához éppen elegendő. Ez a példa nem is annyira kirívó.
+A 80-as évek végén és a 90-es évek elején több programozási nyelv közül is választhattunk volna, egy új projekt elkezdésekor. Két nagy irányvonal létezett ekkor, a C és a Pascal. Ha a C vonalat választjuk, akkor leginkább a C, C++, Java jöhetett volna szóba. A C és a C++ nyelvek erőforrás igényes számításokhoz kitűnő választás. A számításigényes játékok ezért készültek C vagy C++ motorral. A Pascal viszont egy nagyon könnyen tanulható nyelv. Nem erőforrás igényes alkalmazásokhoz ideális választásnak tűnt. Ha a platformfüggetlenség cél, akkor egyértelmű választásnak tűnhetett a Java.
+
+Amennyiben a hosszú távú következményeit nézzük annak, hogy egy projekt milyen nyelven készült el, akkor a nem megfelelő döntéseknek hosszú távon igen komoly következményei lehetnek.
+
+Tegyük fel, hogy gyorsan szeretnénk lefejleszteni egy alkalmazást a 80-as évek végén, DOS operációs rendszerre. Nem erőforrás igényes és egyáltalán nem cél a több platform. Ebben az időben az volt a jellemző, hogy adott operációs rendszerre készítettek valamilyen cél szoftvert. A platform függetlenség így nem igazán jön szóba. Az eszköz függetelenség ekkor még főként azt jelenti, hogy milyen PC-n akarjuk futtatni a programot. Nincsenek pda-k, tabletek, okostelefonok, okostévék stb..  Kiválasztjuk a Pascalt. Ha van pénzünk, akkor a Borland Pascal mellett döntünk. A Win95 megjelenése a PC világában egyértelműen új irányvonalat adott az informatika egyes területeinek, mint például az irodai szoftveres eszközkészletek. A parancssoros programok átköltöztetése ablakos környezetbe felhasználóbarátabbá tették a programokat. 1995-ben ha egy Pascalban megírt parancssoros vagy grafikus alkalmazást az új technológiai irányvonalnak megfelelően ablakos környezetbe akartunk volna költöztetni, akkor egyértelmű választásnak tűnhetett az 1995-ben megjelent Borland Delphi. Ekkor a Microsoft még nem rendelkezett a Visula-Studio - C# párossal. Logikus döntésnek tűnhetett a Borland Delphi. Fontos észrevenni, hogy 1995-ben ez tűnhetett egy logikus döntésnek, de 2000 júliusától már minimum megfontolandó lett volna a C# nyelv választása. Persze ekkor a szoftver teljes újraírására lett volna szükség, de sok esetben az ablakos, esemény vezérelt szemlélet miatt a Pascal programot is a legtöbbször 0-ról írták újra. Amennyiben a kód még spagetti kód is volt, akkor amúgy se volt más választás, mint a teljes újraírás. Van olyan jellegű tapasztalatom, hogy a 90-es évek közepén megírt Pascal programot 97-ben az akkor megjelent Borland Delphi 3-as verziójába teljesen újraírták. Én 2000-ben csatlakoztam a fejlesztő csapathoz és ekkor még mindig voltak olyan utómunkák, amikor a régi Pascal kódból a paradox és egyéb fájl alapú adatbázisok üzleti logikáit kellett átemelni.
+
+Egy programtervező fejlesztőnek fontos látnia, hogy hosszú távon egy-egy döntés mit okoz vagy okozhat. A 2000-es évek első felében egyértelművé vált, hogy a C# egyre több területen felülmúlja a Delphi képességeit (pl. a Delphi 2009-ig nem támogatta az UTF8-at, a C# 2001-től igen). Ezen kívül Redmondba nem csak azzal voltak tisztában, hogy az éppen aktuális operációs rendszernek milyen képességei vannak, de azzal is tisztában voltak, hogy milyen irányban folynak a fejlesztések. Így a Delphi 2000-től, annak ellenére, hogy egy kitűnő Pascal alapú nyelv volt, amiben nagyon könnyen és gyorsan lehetett ablakos szoftvereket fejleszteni Windows alá és rengeteg támogatással rendelkezett, mégis egyre nagyobb hátrányba került a Microsoft C# nyelvéhez képest. Ezt a Borland is észrevette és a kétezres évek közepétől már kétségessé vált a folytatás, míg végül 2006-ban bejelentették, hogy leállnak a Delphi fejlesztésével. Nagyon fontos! 2006-ban aki új projekthez a Delphi-t választotta, annak vagy nagyon alapos oka volt rá, vagy nagyon nem vette figyelembe a technológiai irányvonalakat és ezzel rossz útra terelt egy projektet. Ennek ellenére természetesen a Delphi ma is él és virul, hiszen a kétezres évek közepére már annyi Pascal alapú szoftver készült el, hogy a Delphi fejlesztését tovább kellett vinni. Jelenleg az Embarcadero tulajdonában és gondozásában van a Delphi.
+
+Ezeket a problémákat, amikor még nem látható egy technológiáról, hogy hosszú távon érdemes-e használni, csak azzal lehet részben kivédeni, hogy figyelemmel kísérjük a technológiai fejlődéseket, irányvonalakat (egyes fejlesztéseknél a hardveres technológiai fejlődés figyelemmel kísérése is rendkívül fontos) és megpróbálunk helyes következtetéseket levonni a kialakult helyzetekről, figyelembe véve az összes aktuális és múltbeli valós tényeket az adott technológiákkal kapcsolatban.
+
+Lássunk egy konkrét példát, ami egyértelműen óriási, nehezen vagy egyáltalán nem előrelátható problémát okozhat egy adott technológia hosszú távú használata esetén:
+- [Microsoft Silverlight](https://www.microsoft.com/silverlight/). Egy technológia ami ígéretesnek indult, sok projekt fejlesztése kezdődött el benne, de az ötödik verzió után a Microsoft leállította a fejlesztését. Ha kiválasztunk egy technológiát és abban elkészítünk egy szoftvert, akkor a legkevésbé szeretnénk azt látni, amit jelenleg a Silverlight hivatalos oldalán lehet olvasni: "Prepare for Silverlight 5 end of support after October 2021.". Ha egy kiválasztott technológia támogatása megszűnik, akkor hosszú távon egyre nagyobb problémát jelent azon szoftverek fejlesztése melyek az adott technológia felhasználásával készültek el. A technológiát a HTML5 megjelenése kényszerítette térdre. A HTML5 első bejelentett vázlata (2007) jóval a Silverlight megjelenése elött volt (2011). 2014 előtt egy Silverlight projekt elindításakor minimum átgondolandó volt a HTML5 megjelenésének bevárása, 2014 után, ahogy azt most már utólag tudjuk is, nem egy jó döntés volt a Silverlight választása. Egy programtervezőnek ilyen esetekben a jövőbe kell látnia a jelent és a múltat tanulmányozva. Az ilyen rossz irányba elindított projektek éppen úgy növelik a szoftver válságot, mint a nem jól megírt, nehezen továbbfejleszthető, sok karbantartást igénylő szoftverek.
+ 
+Nézzünk meg egy sokkal aktuálisabb példát:
+- Ha én egy szerver-kliens alapú szolgáltatás orientált projektet szeretnék elkészíteni Windows alapokon és nem követem a technológiai irányvonalakat és aktuális szakmai híreket az adott témában, akkor elképzelhető, hogy WCF technológiát választok. Ha viszont követem, akkor tisztában vagyok azzal, hogy 2019 május 6.án [Scott Hunter](https://devblogs.microsoft.com/dotnet/author/scott-h/) a Visula-Studio és a .NET programmenedzsment igazgatója arra hívta fel a figyelmet, hogy a jövőbeni WCF rendszerek helyett az ASP.NET Core Web API-kat vagy a gRPC-t javasolja, mert a .NET Core rendszerre már nem portolják a teljes WCF rendszert.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> Ilyen körülmények között a WCF választása meggondolandó. Ha valaki ilyen projektet szeretne elindítani, akkor mindenképpen tájékozódnia kell, hogy meghozhassa a megfelelő hosszú távra is alkalmas döntést.
+
+A fentieket figyelembe véve, most már látható az, hogy miért tűnhetett a 2000-es évek elején úgy, hogy Windows rendszerre fejlesztett célalkalmazáshoz C# nyelvet válasszunk. Figyelembe kell vegyük, hogy ekkor még nem voltak a C# nyelvel kapcsolatban olyan tapasztalatok, mint később a Silverlight. Ezeket fontos kiemelni és fontos építeni ilyen tudásokra új projektek bevezetésekor. Természetesen ez nem C# probléma, ez csak egy példa. Ilyen probléma volt előtte is, ahogy a Delphi esetén láthattuk. Az én meglátásom az, hogy a szoftver válság egyik oka pont az, hogy ilyen problémák túl sűrűn fordulnak elő. Ezt a problémát csak erősíti, hogy zárt forráskódú, rendszerekre építkezik úgy sok projekt, hogy annak támogatottsága a zárt forráskód miatt csak az adott forráskód tulajdonosán múlik. Ugyanakkor azt is látni kell, hogy egy technológiát nem érdemes fenttartani akkor, ha az elavulttá válik. Ezeket a problémákat a nyílt forráskód se tudja orvosolni, de még a szabványosítás se.
+
+>Megjegyzés: Tudni kell azt, hogy egyes programozási nyelvek mire alkalmasak és mire nem. A C# létjogosultsága egyáltalán nincs megkérdőjelezve. A C# és .NET keretrendszernek jelenleg nincs igazán komoly ellenfele például Windows rendszerekben irodai, vagy bármilyen más nem erőforrásigényes ablakos alkalmazások fejlesztésére, hosszú távon is. Számos olyan fejlesztésben vettem és veszek részt, melyek kifejezetten Windows rendszerre készülő célalkalmazások. Ezeknél a projekteknél rendszerint a C# és .NET tűnik a legjobb választásnak. Ugyanakkor más területeken, mint például egy webáruház, jelenleg nem valószínű, hogy C# alapú technológia a legjobb választás. Ez persze köztudott, hogy a problémához választunk eszközt (programozási nyelvet és egyéb technológiákat) és nem az eszközökhöz keresünk problémákat, ha csak nem az a cél, hogy feltérképezzük az adott technológia határait.
+
+Térjünk vissza a történetünkhöz.
+
+A 2000-es évek elején az Inessential Kft. készített egy sikeres szoftvert, amit értékesített. Az internet hajnalán a szoftverek értékesítése jellemzően CD lemezeken történt. Tételezzük fel továbbá azt, hogy a szoftver elkészülte után a fejlesztők többségét költségcsökkentés címén elbocsátották és csak annyi fejlesztőt hagytak meg amennyi az aktuálisan felmerülő problémák, jellemzően hibák, megoldásához éppen elegendő. Ez a példa nem is annyira kirívó.
 
 Mi történik a továbbiakban?
 
@@ -31,24 +66,24 @@ A példa szempontjából a szolgáltatás tartalma nem fontos, ám mivel működ
 
 Első lépésként tekintsük meg a szolgáltatásunk magját adó entrópia számítást:
 
-**Definíció:** Az _A1, A2, ... ,An_ jeleket rendre _p1, p2, ... ,pn_ valószínűséggekkel kibocsátó adó (rendszer), ahol
+**Definíció:** Az _A1, A2, ... ,An_ jeleket rendre _p1, p2, ... ,pn_ valószínűségekkel kibocsátó adó (rendszer), ahol
 > p1 + p2 + ... + pn = 1 és 0 <= pi <= 1 (i=1, 2, ..., n)
 átlagos infromációját a valószínűségekkel súlyozott középértékekkel jellemezhetjük, vagyis
 > H(p1, p2, ... ,pn) = Sum(n, i=1) pi log pi
-amit a rendszer bizonytalanságának, határozatlanságának vagy entrópiájának is nevezünk.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>
+amit a rendszer bizonytalanságának, határozatlanságának vagy entrópiájának is nevezünk.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>
 
 A példa nem túl bonyolult, így a bonyolultsága nem vonja el a fókuszt a vázolandó problémákról.
 
 ## A példa történeti áttekintője
 
- - 90-es évek eleje. Az első sikeres alkalmazás piacra dobása. Első verzió: Product\MAF.Entropy.Console
- - 2000-es évek eleje. Felhasználói igény merül fel cserélhető logikára. Második verzió: Product\MAF.Entropy.Console2
+ - 2000-es évek eleje. Az első sikeres alkalmazás piacra dobása. Első verzió: Product\MAF.Entropy.Console
+ - Felhasználói igény merül fel cserélhető logikára. Második verzió: Product\MAF.Entropy.Console2
  - 2000-es évek közepe. Piaci igény merül fel a cserélhető felületre. Harmadik verzió: Product\MAF.Entropy.WPF
  - 2000-es évek második fele. Piaci igény merül fel szolgáltatás orientációra. Negyedik verzió: Product\MAF.Entropy.
  
 ## Megoldások
 
-Az egyes megoldásokat és a hozzájuk tartozó magyarázatokat, technológiai ellemzéseket lásd a fent felsorolt verziók hivatkozásainál.
+Az egyes megoldásokat és a hozzájuk tartozó magyarázatokat, technológiai elemzéseket lásd a fent felsorolt verziók hivatkozásainál.
 
 ## Konklúzió
 
@@ -67,8 +102,9 @@ Ez a szoftver tervezésre is vonatkozik. Ha elavult rendszerekre tervezünk, akk
 <section class="footnotes">
 <ol class="footnotes-list">
   <li id="fn1"  class="footnote-item"><p>A választott cég név az Igazságügyi Minisztérium keresője szerint nem létezik. Kereső: https://www.e-cegjegyzek.hu/?cegkereses . Adott válasz az Inessential cégnévre: "2020. január 23. napján 13 óra 52 perckor a megadott feltételekkel a cégnyilvántartásban nincs nyilvántartott adat."<a href="#fnref1" class="footnote-backref"> ^</a></p></li>
- <li id="fn2" class="footnote-item"><p>A két példaprogram:</p><p> - https://github.com/malbertHE/EKECodingDodjo/blob/master/Principle/SRP/Hanoi/Docs/Description.md</p><p> - https://github.com/malbertHE/EKECodingDodjo/tree/master/Principle/OCP/Shapes<a href="#fnref2" class="footnote-backref"> ^</a></p></li>   
- <li id="fn3"  class="footnote-item"><p>Definíció forrása: http://aries.ektf.hu/~birocs/docs/bevinf.pdf. <a href="#fnref3" class="footnote-backref"> ^</a></p></li>
+ <li id="fn2" class="footnote-item"><p>A két példaprogram:</p><p> - https://github.com/malbertHE/EKECodingDodjo/blob/master/Principle/SRP/Hanoi/Docs/Description.md</p><p> - https://github.com/malbertHE/EKECodingDodjo/tree/master/Principle/OCP/Shapes<a href="#fnref2" class="footnote-backref"> ^</a></p></li>
+ <li id="fn3"  class="footnote-item"><p>Scott Hunter 2019 május 6.-ai bejelentése: https://devblogs.microsoft.com/dotnet/net-core-is-the-future-of-net/<a href="#fnref3" class="footnote-backref"> ^</a></p></li>
+ <li id="fn4"  class="footnote-item"><p>Definíció forrása: http://aries.ektf.hu/~birocs/docs/bevinf.pdf. <a href="#fnref4" class="footnote-backref"> ^</a></p></li>
 </ol>
 </section>
 
