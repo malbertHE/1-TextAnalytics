@@ -146,7 +146,7 @@ Ez a szoftver tervezésre is vonatkozik. Ha elavult rendszerekre tervezünk, akk
 <section class="footnotes">
 <ol class="footnotes-list">
   <li id="fn1"  class="footnote-item"><p>A választott cég név az Igazságügyi Minisztérium keresője szerint nem létezik. Kereső: https://www.e-cegjegyzek.hu/?cegkereses . Adott válasz az Inessential cégnévre: "2020. január 23. napján 13 óra 52 perckor a megadott feltételekkel a cégnyilvántartásban nincs nyilvántartott adat."<a href="#fnref1" class="footnote-backref"> ^</a></p></li>
- <li id="fn2" class="footnote-item"><p>A két példaprogram:</p><p> - https://github.com/malbertHE/EKECodingDodjo/blob/master/Principle/SRP/Hanoi/Docs/Description.md</p><p> - https://github.com/malbertHE/EKECodingDodjo/tree/master/Principle/OCP/Shapes<a href="#fnref2" class="footnote-backref"> ^</a></p></li>
+ <li id="fn2" class="footnote-item"><p>Refaktorálás példaprogramok:</p><p> - https://github.com/malbertHE/EKECodingDodjo/blob/master/Principle/SRP/Hanoi/Docs/Description.md</p><p> - https://github.com/malbertHE/EKECodingDodjo/tree/master/Principle/OCP/Shapes<a href="#fnref2" class="footnote-backref"> ^</a></p></li>
  <li id="fn3"  class="footnote-item"><p>Scott Hunter 2019 május 6.-ai bejelentése: https://devblogs.microsoft.com/dotnet/net-core-is-the-future-of-net/<a href="#fnref3" class="footnote-backref"> ^</a></p></li>
  <li id="fn4"  class="footnote-item"><p>Definíció forrása: http://aries.ektf.hu/~birocs/docs/bevinf.pdf. <a href="#fnref4" class="footnote-backref"> ^</a></p></li>
 </ol>
