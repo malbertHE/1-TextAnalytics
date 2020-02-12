@@ -123,7 +123,7 @@ A GitHub egy Git alapú verziókezelő rendszer. A verziókezelésen kívül má
 
 A GitHub 2008 februárjában indult el. 2018-ban a Microsoft felvásárolta. Jelenleg a világ legnagyobb kódgyűjteményét tartalmazza.
 
-A projektek elkészítéséhez nem csak a verziókezelő szoltáltatást fogom használni. Igyekszem kihasználni és bemutatni a GihHub jelenlegi szolgáltatásait. Ezt egy külön mellékletben teszem meg.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>
+A projektek elkészítéséhez nem csak a verziókezelő szoltáltatást fogom használni. Igyekszem kihasználni és bemutatni a [git.md](git.md) mellékletben a GihHub jelenlegi szolgáltatásait.
 
 ## Megoldások
 
@@ -149,7 +149,6 @@ Ez a szoftver tervezésre is vonatkozik. Ha elavult rendszerekre tervezünk, akk
  <li id="fn2" class="footnote-item"><p>Refaktorálás példaprogramok:</p><p> - https://github.com/malbertHE/EKECodingDodjo/blob/master/Principle/SRP/Hanoi/Docs/Description.md</p><p> - https://github.com/malbertHE/EKECodingDodjo/tree/master/Principle/OCP/Shapes<a href="#fnref2" class="footnote-backref"> ^</a></p></li>
  <li id="fn3"  class="footnote-item"><p>Scott Hunter 2019 május 6.-ai bejelentése: https://devblogs.microsoft.com/dotnet/net-core-is-the-future-of-net/<a href="#fnref3" class="footnote-backref"> ^</a></p></li>
  <li id="fn4"  class="footnote-item"><p>Definíció forrása: http://aries.ektf.hu/~birocs/docs/bevinf.pdf. <a href="#fnref4" class="footnote-backref"> ^</a></p></li>
- <li id="fn5"  class="footnote-item"><p>A dolgozathoz tarotzó git leírása: [git.md](git.md) .<a href="#fnref5" class="footnote-backref"> ^</a></p></li>
 </ol>
 </section>
 
