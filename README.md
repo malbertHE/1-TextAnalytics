@@ -123,7 +123,7 @@ A GitHub egy Git alapú verziókezelő rendszer. A verziókezelésen kívül má
 
 A GitHub 2008 februárjában indult el. 2018-ban a Microsoft felvásárolta. Jelenleg a világ legnagyobb kódgyűjteményét tartalmazza.
 
-A projektek elkészítéséhez nem csak a verziókezelő szoltáltatást fogom használni. Igyekszem kihasználni és bemutatni a [git.md](git.md) mellékletben a GihHub jelenlegi szolgáltatásait.
+A projektek elkészítéséhez nem csak a verziókezelő szoltáltatást fogom használni. Igyekszem kihasználni és bemutatni a [git.md](Docs/git.md) mellékletben a GihHub jelenlegi szolgáltatásait.
 
 ## Megoldások
 
