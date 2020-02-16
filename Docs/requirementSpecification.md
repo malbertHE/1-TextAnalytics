@@ -21,7 +21,9 @@ A cél megvalósítása érdekében szükséges egy entrópia számító alkalma
 ## Felhasználói követelmények
 
 A felhasználó legyen képes egy az információkat tartalmazó adatfolyam megadásával az entrópia számítást úgy elvégezni, hogy az eredményeket könnyen értelmezhető formában, a feldolgozás lefutása után azonnal megkapja.
+
 A felhasználói követelmény használati eset (use case) diagrammja:
+
 ![Térkép](useCase0.png)
 
 További követelmények:
