@@ -24,7 +24,7 @@ A felhasználó legyen képes egy az információkat tartalmazó adatfolyam mega
 
 A felhasználói követelmény használati eset (use case) diagrammja:
 
-![Térkép](useCase0.png)
+![Használati eset](useCase0.png)
 
 További követelmények:
 - hatékonyság: a bemenet függvényében minél kisebb processzor, memória és háttértár terhelés. A program, amennyire lehetséges sebességre optimalizált legyen.
