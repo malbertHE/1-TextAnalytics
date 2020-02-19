@@ -2,7 +2,8 @@
 A fejlesztést minden része C# nyelven lesz megvalósítva.  
 A felületet egy konzolos alkalmazás, az üzleti logikát egy dinamikus csatolású könyvtár valósítja meg.  
 A feldolgozás paraméterezése egy XML fájlba van. Ennek felépítése a "Vezérlő XML fájl" fejezetnél található. Reguláris kifejezéseket tartalmaz, amik megmondják, hogy mit tekintünk jelnek. Az így meghatározott jelekből lesz kiszámolva az entrópia.  
-Az eredményt szintén XML fájlba teszi. Ennek felépítése az "Eredmény XML fájl" fejezetnél található.A feldolgozás sebességre optimalizált. 
+Az eredményt szintén XML fájlba teszi. Ennek felépítése az "Eredmény XML fájl" fejezetnél található.  
+A feldolgozás sebességre optimalizált. 
 
 ## Felület terv
 A felületet paraméterek nélkül indítva kiírja a program súgóját.  
@@ -28,7 +29,6 @@ A block méret számítás dönt arról, hogy az egyes szálak mekkora adattömb
 A szálak belső működésének diagramja:    
 ![Felület terv](plan4.png)
 
-### Üzleti logika interfésze
 A jelkészletet nem felsorolással adjuk meg, hanem szabállyal. A szabály leírására reguláris kifejezést használunk. Az, hogy mit tekintünk jelnek, a jelkészlet táblázat tartalmazza. 
 
 Jelkészlet táblázat:
@@ -44,6 +44,9 @@ Jelkészlet táblázat:
 | Mondatok           | (\.\.\.\|\[úu\]n\.\|pl\.\|.\*?)+(\.\|\?\|!\|$)     | IgnoreCase              | igen               | szóköz | nem              | 
 
 A megadott jelkészlet szabályok alapján kigyűjtjük a jeleket a szövegből és ez fogja képezni az entrópia számítás alapját. Adott lesz az összes jelek száma és az egyes jelek előfordulásainak száma. Az eredmény kiírásakor fontos lesz ezeknek az adatoknak a kiírása is, hogy értelmezhető legyen az eredmény.
+
+### Üzleti logika interfésze
+![Üzleti logika interfész](entropyInterface.png)
 
 ## Vezérlő XML fájl
 Fájl neve: ecl.xml  
