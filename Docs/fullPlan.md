@@ -8,7 +8,7 @@ Az eredményt szintén XML fájlba teszi. Ennek felépítése az "Eredmény XML 
 A felületet paraméterek nélkül indítva kiírja a program súgóját.  
 Paraméterrel indítva megvizsgálja, hogy a paraméter létező szöveges fájlra mutat-e. Amennyiben igen, akkor elindítja az entrópia számítást a paraméterben kapott szöveges fájlra. A futás végén tájékoztató üzenetet ír ki a konzol ablakra. Amennyiben nem létezik a paraméterben megadott fájl, akkor a megfelelő hibaüzenettel és a súgó elérhetőségének kiírásával leáll a program.
 
-A felület állapotgép diagramja: 
+A felület állapotgép diagramja:  
 ![Felület terv](plan1.png)
 
 ## Üzleti logika terv
@@ -16,16 +16,16 @@ A teljes üzleti logika a DLL-ben van megvalósítva.
 Az entrópia számításban paraméterezhető, hogy mit tekintünk jelnek. Több jelkészlet feldolgozására is alkalmas kell legyen a program.  
 Sebességre optimalizálás érdekében, ha a futtató hardver környezet képes több szálat is kezelni, akkor maximum az össz szál mínusz egy szálon indíthatja meg a feldolgozást. Ha a szöveges állomány mérete túl kicsi, 64 kbyte alatt van, akkor nem bontja több szálra a futást. 
 
-A feldolgozás állapotgép diagramja:
+A feldolgozás állapotgép diagramja:  
 ![Felület terv](plan2.png) 
 
-A feldolgozás alábontása: 
+A feldolgozás alábontása:  
 ![Felület terv](plan3.png) 
 
 A memóriavizsgálat azt hivatott ellenőrizni, hogy van-e elég memória a teljes adatállomány betöltéséhez. A program nem engedi meg a teljes memória lefoglalását, a limit 65%-nál van meghúzva. 
 A block méret számítás dönt arról, hogy az egyes szálak mekkora adattömböt kapnak feldolgozásra.
 
-A szálak belső működésének diagramja:
+A szálak belső működésének diagramja:    
 ![Felület terv](plan4.png)
 
 ### Üzleti logika interfésze
