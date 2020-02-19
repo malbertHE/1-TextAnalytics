@@ -1,10 +1,12 @@
-# Projekt tervekA fejlesztést minden része C# nyelven lesz megvalósítva. 
+# Projekt tervek
+A fejlesztést minden része C# nyelven lesz megvalósítva. 
 A felületet egy konzolos alkalmazás, az üzleti logikát egy dinamikus csatolású könyvtár valósítja meg. 
 A feldolgozás paraméterezése egy XML fájlba van. Ennek felépítése a "Vezérlő XML fájl" fejezetnél található. Reguláris kifejezéseket tartalmaz, amik megmondják, hogy mit tekintünk jelnek. Az így meghatározott jelekből lesz kiszámolva az entrópia. 
 Az eredményt szintén XML fájlba teszi. Ennek felépítése az "Eredmény XML fájl" fejezetnél található.A feldolgozás sebességre optimalizált.
 
-## Felület terv- A felületet paraméterek nélkül indítva kiírja a program súgóját.
-- Paraméterrel indítva megvizsgálja, hogy a paraméter létező szöveges fájlra mutat-e. Amennyiben igen, akkor elindítja az entrópia számítást a paraméterben kapott szöveges fájlra. A futás végén tájékoztató üzenetet ír ki a konzol ablakra. Amennyiben nem létezik a paraméterben megadott fájl, akkor a megfelelő hibaüzenettel és a súgó elérhetőségének kiírásával leáll a program.
+## Felület terv
+A felületet paraméterek nélkül indítva kiírja a program súgóját. 
+Paraméterrel indítva megvizsgálja, hogy a paraméter létező szöveges fájlra mutat-e. Amennyiben igen, akkor elindítja az entrópia számítást a paraméterben kapott szöveges fájlra. A futás végén tájékoztató üzenetet ír ki a konzol ablakra. Amennyiben nem létezik a paraméterben megadott fájl, akkor a megfelelő hibaüzenettel és a súgó elérhetőségének kiírásával leáll a program.
 
 A felület állapotgép diagramja: 
 ![Felület terv](plan1.png)
