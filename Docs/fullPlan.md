@@ -7,7 +7,7 @@ Az eredményt szintén XML fájlba teszi. Ennek felépítése az "Eredmény XML 
 - Paraméterrel indítva megvizsgálja, hogy a paraméter létező szöveges fájlra mutat-e. Amennyiben igen, akkor elindítja az entrópia számítást a paraméterben kapott szöveges fájlra. A futás végén tájékoztató üzenetet ír ki a konzol ablakra. Amennyiben nem létezik a paraméterben megadott fájl, akkor a megfelelő hibaüzenettel és a súgó elérhetőségének kiírásával leáll a program.
 
 A felület állapotgép diagramja: 
-![Felület terv](/plan1.png)
+![Felület terv](plan1.png)
 
 ## Üzleti logika terv
 A teljes üzleti logika a DLL-ben van megvalósítva. 
@@ -15,16 +15,16 @@ Az entrópia számításban paraméterezhető, hogy mit tekintünk jelnek. Több
 Sebességre optimalizálás érdekében, ha a futtató hardver környezet képes több szálat is kezelni, akkor maximum az össz szál mínusz egy szálon indíthatja meg a feldolgozást. Ha a szöveges állomány mérete túl kicsi, 64 kbyte alatt van, akkor nem bontja több szálra a futást. 
 
 A feldolgozás állapotgép diagramja:
-![Felület terv](/plan2.png) 
+![Felület terv](plan2.png) 
 
 A feldolgozás alábontása: 
-![Felület terv](/plan3.png) 
+![Felület terv](plan3.png) 
 
 A memóriavizsgálat azt hivatott ellenőrizni, hogy van-e elég memória a teljes adatállomány betöltéséhez. A program nem engedi meg a teljes memória lefoglalását, a limit 65%-nál van meghúzva. 
 A block méret számítás dönt arról, hogy az egyes szálak mekkora adattömböt kapnak feldolgozásra.
 
 A szálak belső működésének diagramja:
-![Felület terv](/plan4.png)
+![Felület terv](plan4.png)
 
 ### Üzleti logika interfésze
 A jelkészletet nem felsorolással adjuk meg, hanem szabállyal. A szabály leírására reguláris kifejezést használunk. Az, hogy mit tekintünk jelnek, a jelkészlet táblázat tartalmazza. 
@@ -39,7 +39,7 @@ Jelkészlet táblázat:
 | Csak betűk         | \[^\\d\\W\]                                        |                         |                    |        |                  | 
 | Csak írásjelek     | \[^\\d\\w \]                                       |                         |                    |        |                  | 
 | Szavak             | \\w+                                               | IgnoreCase              | igen               |        |                  | 
-| Mondatok           | (\.\.\.\|\[úu\]n\.\|pl\.\|.\*?)+(\.\|\?\|!\|$)     | IgnoreCase              | igen               | szóköz |                  | 
+| Mondatok           | (\.\.\.\|\[úu\]n\.\|pl\.\|.\*?)+(\.\|\?\|!\|$)     | IgnoreCase              | igen               | szóköz | nem              | 
 
 A megadott jelkészlet szabályok alapján kigyűjtjük a jeleket a szövegből és ez fogja képezni az entrópia számítás alapját. Adott lesz az összes jelek száma és az egyes jelek előfordulásainak száma. Az eredmény kiírásakor fontos lesz ezeknek az adatoknak a kiírása is, hogy értelmezhető legyen az eredmény.
 
@@ -58,4 +58,4 @@ Fájl karakterkódolása: UTF-8
 Fájl szerkezete: [a_YYYY_MM_DD_hh_mm_ss.xml](a_YYYY_MM_DD_hh_mm_ss.xml)
 
 ## Rendszer terv!
-[Felület terv](/plan5.png)
+![Felület terv](plan5.png)
