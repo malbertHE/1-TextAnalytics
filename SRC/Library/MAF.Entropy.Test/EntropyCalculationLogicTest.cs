@@ -10,6 +10,7 @@ namespace MAF.Entropy.Test
         public void TestEntropyCalculationLogic()
         {
             EntropyCalculationLogic ecl = new EntropyCalculationLogic();
+            Assert.IsTrue(ecl.EntropyLogicList.Count == 0);
         }
     }
 }
