@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace MAF.Entropy
 {
@@ -7,5 +9,8 @@ namespace MAF.Entropy
     [Serializable]
     public class EntropyCalculationLogic
     {
+        /// <summary>Feldolgozási logikát tartalmazó lista.</summary>
+        [XmlElement("EntropyLogicList")]
+        public List<EntropyLogic> EntropyLogicList = new List<EntropyLogic>();
     }
 }
