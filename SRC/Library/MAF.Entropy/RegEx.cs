@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace MAF.Entropy
 {
@@ -6,5 +7,8 @@ namespace MAF.Entropy
     [Serializable]
     public class RegEx
     {
+        /// <summary>A regex pattern része.</summary>
+        [XmlAttribute(AttributeName = "Pattern")]
+        public string Pattern = string.Empty;
     }
 }
