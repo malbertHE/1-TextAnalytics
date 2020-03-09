@@ -9,7 +9,7 @@ namespace MAF.Entropy.Test
         public void TestEntropyItem()
         {
             EntropyItem ei = new EntropyItem();
-
+            Assert.IsTrue(ei.Value == string.Empty);
         }
     }
 }
