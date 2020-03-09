@@ -15,5 +15,11 @@ namespace MAF.Entropy
         /// <summary>A feldolgozást leíró reguláris kifejezések listája.</summary>
         [XmlElement("Regex")]
         public List<RegEx> RegexList = new List<RegEx>();
+
+        /// <summary>A feldolgozott eredmények tartalmazhatják-e az itt megadott karaktert az eredmény karakterlánc 
+        /// elején vagy végén. Ha ide megadunk egy karaktert akkor az eredmény értékekben ez a karakterlánc elejéről 
+        /// és végéről törlődni fognak.</summary>
+        [XmlAttribute(AttributeName = "Trim")]
+        public string Trim = string.Empty;
     }
 }
