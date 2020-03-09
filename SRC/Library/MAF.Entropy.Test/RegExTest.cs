@@ -9,6 +9,7 @@ namespace MAF.Entropy.Test
         public void TestRegEx()
         {
             RegEx re = new RegEx();
+            Assert.IsTrue(re.Pattern == string.Empty);
         }
     }
 }
