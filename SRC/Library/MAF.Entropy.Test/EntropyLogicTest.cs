@@ -12,6 +12,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(el.Name == string.Empty);
             Assert.IsTrue(el.RegexList.Count == 0);
             Assert.IsTrue(el.Trim == string.Empty);
+            Assert.IsTrue(el.NoEmpty == false);
         }
     }
 }
