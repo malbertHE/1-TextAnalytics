@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Entropy.cs" />
     <Compile Include="EntropyCalculationLogicTest.cs" />
+    <Compile Include="EntropyItemTest.cs" />
     <Compile Include="EntropyLogicTest.cs" />
     <Compile Include="IEntropyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
