@@ -11,6 +11,7 @@ namespace MAF.Entropy.Test
             RegEx re = new RegEx();
             Assert.IsTrue(re.Pattern == string.Empty);
             Assert.IsTrue(re.Replace == string.Empty);
+            Assert.IsTrue(re.RegexOptions == string.Empty);
         }
     }
 }
