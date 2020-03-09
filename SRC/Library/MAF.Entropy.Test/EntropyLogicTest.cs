@@ -10,7 +10,7 @@ namespace MAF.Entropy.Test
         public void TestEntropyLogic()
         {
             EntropyLogic el = new EntropyLogic();
-
+            Assert.IsTrue(Name == string.Empty);
         }
     }
 }
