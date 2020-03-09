@@ -11,5 +11,7 @@
         public bool IsRunCalculation { get; } = false;
 
         public string ResultFile { get; } = string.Empty;
+
+        public string CalculationLogic { get; } = string.Empty;
     }
 }

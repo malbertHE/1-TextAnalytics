@@ -17,5 +17,8 @@
 
         /// <summary>Eredményfájl. Ide kerülnek be az entrópia számítás eredményei.</summary>
         string ResultFile { get; }
+
+        /// <summary>Feldolgozási logikát leíró fájl.</summary>
+        string CalculationLogic { get; }
     }
 }
