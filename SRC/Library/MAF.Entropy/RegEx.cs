@@ -14,5 +14,10 @@ namespace MAF.Entropy
         /// <summary>A regex replace része. Ha meg van adva, akkor replace fut, ha nincs akkor csak matches.</summary>
         [XmlAttribute(AttributeName = "Replace")]
         public string Replace = string.Empty;
+
+        /// <summary>Reguláris kifejezés opciói. Ha nincs megadva semmi, akkor a 
+        /// <see cref="System.Text.RegularExpressions.Regex"/> alapértékei lépnek életbe.</summary>
+        [XmlAttribute(AttributeName = "RegexOptions")]
+        public string RegexOptions = string.Empty;
     }
 }
