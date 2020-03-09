@@ -6,5 +6,8 @@
         /// <summary>A forrás adat, ami feldolgozásra került.</summary>
         string SourceDataFile { get; }
 
+        /// <summary>Ennyi szálon fogunk próbálkozni a feldolgozással, ha a szöveg mérete ezt igényli.</summary>
+        int ThreadCount { get; }
+
     }
 }
