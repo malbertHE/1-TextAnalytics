@@ -14,5 +14,8 @@
 
         /// <summary>Igaz, ha éppen fut a feldolgozás és hamis, ha nem.</summary>
         bool IsRunCalculation { get; }
+
+        /// <summary>Eredményfájl. Ide kerülnek be az entrópia számítás eredményei.</summary>
+        string ResultFile { get; }
     }
 }

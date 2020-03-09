@@ -9,5 +9,7 @@
         public int RunningThreadCount { get; } = 1;
 
         public bool IsRunCalculation { get; } = false;
+
+        public string ResultFile { get; } = string.Empty;
     }
 }
