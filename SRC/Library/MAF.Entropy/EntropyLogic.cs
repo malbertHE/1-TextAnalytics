@@ -21,5 +21,9 @@ namespace MAF.Entropy
         /// és végéről törlődni fognak.</summary>
         [XmlAttribute(AttributeName = "Trim")]
         public string Trim = string.Empty;
+
+        /// <summary>Üres karakterláncot eredménynek tekintünk-e vagy sem.</summary>
+        [XmlAttribute(AttributeName = "NoEmpty")]
+        public bool NoEmpty = false;
     }
 }
