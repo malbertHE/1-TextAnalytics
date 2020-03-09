@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace MAF.Entropy
 {
@@ -6,5 +7,8 @@ namespace MAF.Entropy
     [Serializable]
     public class EntropyLogic
     {
+        /// <summary>A feldolgozás neve.</summary>
+        [XmlAttribute(AttributeName = "Name")]
+        public string Name = string.Empty;
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MAF.Entropy.Test
 {
@@ -10,7 +9,8 @@ namespace MAF.Entropy.Test
         public void TestEntropyLogic()
         {
             EntropyLogic el = new EntropyLogic();
-            Assert.IsTrue(Name == string.Empty);
+            Assert.IsTrue(el.Name == string.Empty);
+            Assert.IsTrue(el.RegexList.Count == 0);
         }
     }
 }
