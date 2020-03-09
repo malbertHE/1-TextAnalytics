@@ -12,7 +12,8 @@ namespace MAF.Entropy.Test
             Assert.IsNotNull(e);
             Assert.IsTrue(e.SourceDataFile == string.Empty);
             Assert.IsTrue(e.ThreadCount == 1);
-            Assert.IsTrue(e.RunningThreadCount == 1); 
+            Assert.IsTrue(e.RunningThreadCount == 1);
+            Assert.IsFalse(e.IsRunCalculation);
         }
     }
 }
