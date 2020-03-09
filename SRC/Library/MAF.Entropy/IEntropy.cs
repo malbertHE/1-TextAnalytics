@@ -12,5 +12,7 @@
         /// <summary>Ennyi szál indult el végül.</summary>
         int RunningThreadCount { get; }
 
+        /// <summary>Igaz, ha éppen fut a feldolgozás és hamis, ha nem.</summary>
+        bool IsRunCalculation { get; }
     }
 }

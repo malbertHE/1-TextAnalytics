@@ -7,5 +7,7 @@
         public int ThreadCount { get; } = 1;
 
         public int RunningThreadCount { get; } = 1;
+
+        public bool IsRunCalculation { get; } = false;
     }
 }
