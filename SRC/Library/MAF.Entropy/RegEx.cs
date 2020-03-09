@@ -19,5 +19,9 @@ namespace MAF.Entropy
         /// <see cref="System.Text.RegularExpressions.Regex"/> alapértékei lépnek életbe.</summary>
         [XmlAttribute(AttributeName = "RegexOptions")]
         public string RegexOptions = string.Empty;
+
+        /// <summary>Ha ez igaz, akkor az eredményt kisbetűre konvertálja.</summary>
+        [XmlAttribute(AttributeName = "ToLower")]
+        public bool ToLower = false;
     }
 }

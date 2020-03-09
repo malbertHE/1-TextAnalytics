@@ -12,7 +12,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(re.Pattern == string.Empty);
             Assert.IsTrue(re.Replace == string.Empty);
             Assert.IsTrue(re.RegexOptions == string.Empty);
-            Assert.IsTrue(re.ToLower == string.Empty);
+            Assert.IsTrue(re.ToLower == false);
         }
     }
 }
