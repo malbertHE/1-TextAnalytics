@@ -21,6 +21,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(e.IsRunCalculation);
             e.WaitForAll();
             Assert.IsTrue(e.ResultFile == Entropy.C_TestResultFile);
+            Assert.IsFalse(e.IsRunCalculation);
         }
     }
 }

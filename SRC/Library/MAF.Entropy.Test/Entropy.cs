@@ -10,13 +10,24 @@
 
         public int RunningThreadCount { get; } = 1;
 
-        public bool IsRunCalculation { get; } = false;
+        public bool IsRunCalculation { get { return isRunCalculation; } }
 
-        public string ResultFile { get; } = resultFile;
+        public string ResultFile { get { return resultFile; } }
 
         public string CalculationLogic { get; } = string.Empty;
 
+        public void RunCalculation()
+        {
+            isRunCalculation = true;
+        }
+
+        public void WaitForAll()
+        {
+            isRunCalculation = false;
+            resultFile = C_TestResultFile;
+        }
 
         string resultFile = string.Empty;
+        bool isRunCalculation = false;
     }
 }

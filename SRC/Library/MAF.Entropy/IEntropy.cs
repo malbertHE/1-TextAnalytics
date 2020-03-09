@@ -20,5 +20,14 @@
 
         /// <summary>Feldolgozási logikát leíró fájl.</summary>
         string CalculationLogic { get; }
+
+        /// <summary>Entrópia számítást elindító függvény. 
+        /// Figyelem! A függvény saját szálat vagy szálakat indít és a futást visszaadja a felületnek!
+        /// A feldolgozás végét és a szálak leállását a <see cref="IsRunCalculation"/> jelzi.
+        /// Amíg ez igaz, addig folyamatban van a feldolgozás.</summary>
+        void RunCalculation();
+
+        /// <summary>Ha ezt elindítják, akkor bevárja az összes szálat.</summary>
+        void WaitForAll();
     }
 }
