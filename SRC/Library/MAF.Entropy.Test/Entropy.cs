@@ -2,5 +2,6 @@
 {
     class Entropy : IEntropy
     {
+        public string SourceDataFile { get; } = string.Empty;
     }
 }
