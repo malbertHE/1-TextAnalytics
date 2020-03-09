@@ -16,7 +16,6 @@ namespace MAF.Entropy.Test
             Assert.IsFalse(e.IsRunCalculation);
             Assert.IsTrue(e.ResultFile == string.Empty);
             Assert.IsTrue(e.CalculationLogic == string.Empty);
-            Assert.IsTrue(e.ResultDir == string.Empty);
         }
     }
 }
