@@ -10,6 +10,7 @@ namespace MAF.Entropy.Test
         {
             Entropy e = new Entropy();
             Assert.IsNotNull(e);
+            Assert.IsTrue(e.SourceDataFile == string.Empty);
         }
     }
 }

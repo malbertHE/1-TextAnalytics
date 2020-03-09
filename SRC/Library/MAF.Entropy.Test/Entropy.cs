@@ -2,6 +2,5 @@
 {
     class Entropy : IEntropy
     {
-
     }
 }
