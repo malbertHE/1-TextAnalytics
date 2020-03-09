@@ -11,6 +11,7 @@ namespace MAF.Entropy.Test
             EntropyLogic el = new EntropyLogic();
             Assert.IsTrue(el.Name == string.Empty);
             Assert.IsTrue(el.RegexList.Count == 0);
+            Assert.IsTrue(el.Trim == string.Empty);
         }
     }
 }
