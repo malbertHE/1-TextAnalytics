@@ -7,7 +7,7 @@
 | Vezérlő XML fájl felépítésének tervezése           | 0         | 0,3           | szenior fejlesztő | 40           | 12       | 
 | Eredmény XML fájl felépítésének tervezése          | 0         | 0,3           | szenior fejlesztő | 40           | 12       | 
 | Adat feldolgozó megtervezése (Entrópia számítás)   | 1         | 1             | szenior fejlesztő | 40           | 40       | 
-| ÜL projket létrehozáas                             | 2         | 0,1           | junior fejlesztő  | 30           | 3        | 
+| ÜL projket létrehozása                             | 2         | 0,1           | junior fejlesztő  | 30           | 3        | 
 | ÜL interfész megvalósítása                         | 3         | 0,2           | junior fejlesztő  | 30           | 6        | 
 | Vezérlő XML fájl kezelő megvalósítása              | 3         | 0,3           | junior fejlesztő  | 30           | 9        | 
 | Eredmény XML fájl kezelő megvalósítása             | 3         | 0,3           | junior fejlesztő  | 30           | 9        | 

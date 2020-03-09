@@ -62,5 +62,5 @@ Fájl helye: program könyvtár \Result mappa.
 Fájl karakterkódolása: UTF-8  
 Fájl szerkezete: [a_YYYY_MM_DD_hh_mm_ss.xml](a_YYYY_MM_DD_hh_mm_ss.xml)
 
-## Rendszer terv!
+## Rendszer terv
 ![Felület terv](plan5.png)
