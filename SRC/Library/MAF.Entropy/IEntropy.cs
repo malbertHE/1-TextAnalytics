@@ -9,5 +9,8 @@
         /// <summary>Ennyi szálon fogunk próbálkozni a feldolgozással, ha a szöveg mérete ezt igényli.</summary>
         int ThreadCount { get; }
 
+        /// <summary>Ennyi szál indult el végül.</summary>
+        int RunningThreadCount { get; }
+
     }
 }
