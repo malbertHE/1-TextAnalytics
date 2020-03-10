@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection\XMLObject.cs" />
     <Compile Include="EntropyCalculationLogic.cs" />
     <Compile Include="EntropyCalculator.cs" />
     <Compile Include="EntropyItem.cs" />
@@ -51,5 +52,6 @@
     <Compile Include="RegEx.cs" />
     <Compile Include="ThreadParams.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

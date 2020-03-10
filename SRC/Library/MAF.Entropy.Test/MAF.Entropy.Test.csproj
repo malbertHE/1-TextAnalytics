@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection\XMLObjectTest.cs" />
     <Compile Include="Entropy.cs" />
     <Compile Include="EntropyCalculationLogicTest.cs" />
     <Compile Include="EntropyCalculatorTest.cs" />

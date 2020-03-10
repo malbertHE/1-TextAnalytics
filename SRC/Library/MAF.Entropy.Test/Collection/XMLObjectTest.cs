@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MAF.Entropy.Collection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MAF.Entropy.Test.Collection
@@ -8,7 +9,7 @@ namespace MAF.Entropy.Test.Collection
     {
         #region Tesz osztályok.
 
-        class A
+        public class A
         {
             public string sA = string.Empty;
             public int iA = 0;
@@ -17,7 +18,7 @@ namespace MAF.Entropy.Test.Collection
             public List<B> b = new List<B>();
         }
 
-        class B
+        public class B
         {
             public string sB;
         }
@@ -48,7 +49,7 @@ namespace MAF.Entropy.Test.Collection
             const string cSA = "sA másik szöveg";
             a2.sA = cSA;
 
-            XMLObject.ObjectToXML(c_TestXMLFile, a1);
+            XMLObject.ObjectToXML(c_TestXMLFile, a2);
             A a3 = (A)XMLObject.XMLToObject(c_TestXMLFile, typeof(A));
             Assert.IsTrue(a3.sA == cSA);
         }
