@@ -11,7 +11,11 @@ namespace MAF.Entropy
         /// <summary>Alapértelmezett logika.</summary>
         public const string C_DefaultLogicFile = "Logic\\ecl.xml";
 
+        /// <summary>Feldolgozás indításakor, ha a feldolgozandó fájl nem létezik, akkor ezt a hibaüzenetet dobja.</summary>
         public const string C_SourceFileNotExist = "Nem létezik a következő feldolgozandó fájl: {0} !";
+
+        /// <summary>Feldolgozás indításakor, ha váratlan hiba esemény következik be, akkor ezt a hibaüzenetet dobja, a teljes hibalánccal.</summary>
+        public const string C_CalculationError = "A következő fájl feldolgozásakor hiba történt: {0} !";
 
         /// <summary>Forrás fájl, amit legutoljára kíséreltek meg feldolgozni.</summary>
         public string SourceDataFile { get; private set; } = string.Empty;
@@ -45,10 +49,20 @@ namespace MAF.Entropy
         /// A szálak bevárásához a <see cref="WaitForAll"/> metódus szolgál.</summary>
         public void RunCalculation(string pSourceDataFile)
         {
-            SourceDataFile = pSourceDataFile;
-            InitCalc();
-            CheckSourceDataFile();
-
+            try
+            {
+                SourceDataFile = pSourceDataFile;
+                InitCalc();
+                CheckSourceDataFile();
+            }
+            catch(Exception ex)
+            {
+                IsRunCalculation = false;
+                if (ex is EntropyCalculatorException)
+                    throw ex;
+                else
+                    throw new EntropyCalculatorException(string.Format(C_CalculationError, SourceDataFile), ex);
+            }
         }
 
 
@@ -61,7 +75,10 @@ namespace MAF.Entropy
 
         private void InitCalc()
         {
-            
+            ResultFile = string.Empty;
+            IsRunCalculation = true;
+            ThreadCount = 1;
+            RunningThreadCount = 0;
         }
 
         private void CheckSourceDataFile()
