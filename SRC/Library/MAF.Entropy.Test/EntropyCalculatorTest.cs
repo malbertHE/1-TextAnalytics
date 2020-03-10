@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MAF.Entropy.Test
 {
@@ -12,11 +13,7 @@ namespace MAF.Entropy.Test
         {
             ec = new EntropyCalculator();
             Assert.IsTrue(ec.SourceDataFile == string.Empty);
-            Assert.IsTrue(ec.ResultFile == string.Empty);
-            Assert.IsTrue(ec.CalculationLogic == EntropyCalculator.C_DefaultLogicFile);
-            Assert.IsFalse(ec.IsRunCalculation);
-            Assert.IsTrue(ec.ThreadCount == 1);
-            Assert.IsTrue(ec.RunningThreadCount == 0);
+            InitTest();
         }
 
         [TestMethod]
@@ -40,6 +37,17 @@ namespace MAF.Entropy.Test
             {
                 Assert.IsTrue(ex.Message == string.Format(EntropyCalculator.C_SourceFileNotExist, C_TestSourceFile));
             }
+            Assert.IsTrue(ec.SourceDataFile == C_TestSourceFile);
+            InitTest();
+        }
+
+        private void InitTest()
+        {
+            Assert.IsTrue(ec.ResultFile == string.Empty);
+            Assert.IsTrue(ec.CalculationLogic == EntropyCalculator.C_DefaultLogicFile);
+            Assert.IsFalse(ec.IsRunCalculation);
+            Assert.IsTrue(ec.ThreadCount == 1);
+            Assert.IsTrue(ec.RunningThreadCount == 0);
         }
     }
 }
