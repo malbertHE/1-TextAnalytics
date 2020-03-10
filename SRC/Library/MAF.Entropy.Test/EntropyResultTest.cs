@@ -15,6 +15,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(er.Hmax == 0);
             Assert.IsTrue(er.SignCount == 0);
             Assert.IsTrue(er.DifferentSignsCount == 0);
+            Assert.IsTrue(er.Logic == 0);
         }
     }
 }
