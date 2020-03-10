@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntropyCalculationLogic.cs" />
+    <Compile Include="EntropyCalculator.cs" />
     <Compile Include="EntropyItem.cs" />
     <Compile Include="EntropyLogic.cs" />
     <Compile Include="EntropyResult.cs" />
