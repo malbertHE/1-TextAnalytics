@@ -34,6 +34,16 @@ namespace MAF.Entropy
         }
 
 
+        /// <summary>Entrópia számítást elindító függvény. 
+        /// Figyelem! A függvény saját szálat vagy szálakat indít és a futást visszaadja a hívónak!
+        /// A feldolgozás végét és a szálak leállását a <see cref="IsRunCalculation"/> jelzi.
+        /// Amíg ez igaz, addig folyamatban van a feldolgozás.
+        /// A szálak bevárásához a <see cref="WaitForAll"/> metódus szolgál.</summary>
+        public void RunCalculation(string pSourceDataFile)
+        {
+            SourceDataFile = pSourceDataFile;
+        }
+
 
         private void LoadLogic()
         {

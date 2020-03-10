@@ -24,6 +24,7 @@ namespace MAF.Entropy.Test
         {
             const string C_TestSourceFile = "test1.xml";
             ec.RunCalculation(C_TestSourceFile);
+            Assert.IsTrue(ec.SourceDataFile == C_TestSourceFile);
         }
     }
 }
