@@ -12,6 +12,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(ei.Value == string.Empty);
             Assert.IsTrue(ei.Count == 0);
             Assert.IsTrue(ei.P == 0);
+            Assert.IsTrue(ei.I == 0);
         }
     }
 }

@@ -4,12 +4,12 @@
     public class EntropyItem
     {
         /// <summary>A jel.</summary>
-        public string Value { get; private set; } = string.Empty;
+        public string Value = string.Empty;
 
         /// <summary>A jel előfordulása.</summary>
-        public uint Count;
+        public uint Count = 0;
 
         /// <summary>Relatív gyakoriság értéke.</summary>
-        public double P;
+        public double P = 0;
     }
 }
