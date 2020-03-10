@@ -13,6 +13,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(ec.ResultFile == string.Empty);
             Assert.IsTrue(ec.CalculationLogic == EntropyCalculator.C_DefaultLogicFile);
             Assert.IsFalse(ec.IsRunCalculation);
+            Assert.IsTrue(ec.ThreadCount == 1);
         }
     }
 }
