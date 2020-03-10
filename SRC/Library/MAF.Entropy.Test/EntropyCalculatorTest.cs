@@ -1,4 +1,4 @@
-﻿using System;
+﻿using MAF.Entropy.Collection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MAF.Entropy.Test
@@ -22,6 +22,12 @@ namespace MAF.Entropy.Test
             const string C_TestSourceFile = @"TestFiles\test1.txt";
             ec.RunCalculation(C_TestSourceFile);
             Assert.IsTrue(ec.SourceDataFile == C_TestSourceFile);
+            ec.WaitForAll();
+            Assert.IsTrue(ec.SourceDataFile == C_TestSourceFile);
+            Assert.IsFalse(ec.IsRunCalculation);
+            Assert.IsTrue(ec.CalculationLogic == EntropyCalculator.C_DefaultLogicFile);
+            Assert.IsTrue(ec.ResultFile == @"Result\test1.txt");
+            Assert.IsTrue(Cryptography.FileMD5Calculator(ec.ResultFile) == Cryptography.FileMD5Calculator(@"TestFiles\test1.txt"));
         }
 
         [TestMethod]
