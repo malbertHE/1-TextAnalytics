@@ -22,9 +22,24 @@ namespace MAF.Entropy.Test
         [TestMethod]
         public void TestRunCalculation()
         {
-            const string C_TestSourceFile = "test1.xml";
+            const string C_TestSourceFile = "TestFiles\test1.xml";
             ec.RunCalculation(C_TestSourceFile);
             Assert.IsTrue(ec.SourceDataFile == C_TestSourceFile);
+        }
+
+        [TestMethod]
+        public void TestRunCalculation_NotExistSourceFile()
+        {
+            const string C_TestSourceFile = "notExist.file";
+            try
+            {
+                ec.RunCalculation(C_TestSourceFile);
+                Assert.Fail();
+            }
+            catch(EntropyCalculatorException ex)
+            {
+                Assert.IsTrue(ex.Message == string.Format(EntropyCalculator.C_SourceFileNotExist, C_TestSourceFile));
+            }
         }
     }
 }
