@@ -8,5 +8,8 @@
 
         /// <summary>Információtartalom. Az egy jelre eső átlagos információt megszorozzuk a szöveg hosszával: I = N × H</summary>
         public double I;
+
+        /// <summary>Az entrópia maximuma. Az n jelszámú jelrendszer maximális entrópiája Hmax = log2(n).</summary>
+        public double Hmax;
     }
 }
