@@ -10,6 +10,7 @@ namespace MAF.Entropy.Test
         public void TestEntropyCalculator()
         {
             EntropyCalculator ec = new EntropyCalculator();
+            Assert.IsTrue(ec.SourceDataFile == string.Empty);
         }
     }
 }
