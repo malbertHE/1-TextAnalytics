@@ -15,6 +15,9 @@ namespace MAF.Entropy
         /// <summary>Feldolgozási logikát leíró fájl.</summary>
         public string CalculationLogic { get; private set; } = C_DefaultLogicFile;
 
+        /// <summary>Igaz, ha fut a feldolgozás és hamis, ha nem.</summary>
+        public bool IsRunCalculation { get; private set; } = false;
+
         /// <summary>Eredményfájl. Ide kerülnek be az entrópia számítás eredményei.</summary>
         public string ResultFile { get; private set; } = string.Empty;
 
