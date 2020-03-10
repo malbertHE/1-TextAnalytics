@@ -6,10 +6,11 @@ namespace MAF.Entropy.Test
     public class EntropyCalculatorTest
     {
         [TestMethod]
-        public void TestEntropyCalculator()
+        public void TestConstructor()
         {
-            EntropyCalculator ec = new EntropyCalculator();
-            Assert.IsTrue(ec.SourceDataFile == string.Empty);
+            const string c_ScrFile = "testSRC.xml";
+            EntropyCalculator ec = new EntropyCalculator(c_ScrFile);
+            Assert.IsTrue(ec.SourceDataFile == c_ScrFile);
         }
     }
 }
