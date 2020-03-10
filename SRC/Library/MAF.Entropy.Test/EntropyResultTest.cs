@@ -13,6 +13,7 @@ namespace MAF.Entropy.Test
             Assert.IsTrue(er.ShannonEntropy == 0);
             Assert.IsTrue(er.I == 0);
             Assert.IsTrue(er.Hmax == 0);
+            Assert.IsTrue(er.SignCount == 0);
         }
     }
 }
