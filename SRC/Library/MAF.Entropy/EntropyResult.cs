@@ -19,6 +19,7 @@
         /// <summary>A jelek darabszáma. Ennyi különféle jel van a szövegben.</summary>
         public int DifferentSignsCount = 0;
 
-
+        /// <summary>A logika, ami alapján fel lett dolgozva a szöveg.</summary>
+        public EntropyLogic Logic;
     }
 }
