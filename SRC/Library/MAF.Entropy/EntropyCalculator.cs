@@ -18,6 +18,9 @@ namespace MAF.Entropy
         /// <summary>Ennyi szálon fogunk próbálkozni a feldolgozással, ha a szöveg mérete ezt igényli.</summary>
         public int ThreadCount { get; private set; } = 1;
 
+        /// <summary>Ennyi szál indult el végül.</summary>
+        public int RunningThreadCount { get; private set; } = 0;
+
         /// <summary>Igaz, ha fut a feldolgozás és hamis, ha nem.</summary>
         public bool IsRunCalculation { get; private set; } = false;
 
