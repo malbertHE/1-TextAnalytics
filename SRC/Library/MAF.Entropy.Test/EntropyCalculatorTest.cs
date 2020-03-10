@@ -11,6 +11,7 @@ namespace MAF.Entropy.Test
             EntropyCalculator ec = new EntropyCalculator();
             Assert.IsTrue(ec.SourceDataFile == string.Empty);
             Assert.IsTrue(ec.ResultFile == string.Empty);
+            Assert.IsTrue(ec.CalculationLogic == EntropyCalculator.C_DefaultLogicFile);
         }
     }
 }
