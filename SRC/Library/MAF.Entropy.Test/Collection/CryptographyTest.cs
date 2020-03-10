@@ -1,4 +1,4 @@
-﻿using System;
+﻿using MAF.Entropy.Collection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MAF.Entropy.Test.Collection

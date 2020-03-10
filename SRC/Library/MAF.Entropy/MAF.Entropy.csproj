@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection\Cryptography.cs" />
     <Compile Include="Collection\XMLObject.cs" />
     <Compile Include="EntropyCalculationLogic.cs" />
     <Compile Include="EntropyCalculator.cs" />
