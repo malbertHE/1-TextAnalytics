@@ -11,5 +11,8 @@
 
         /// <summary>Relatív gyakoriság értéke.</summary>
         public double P = 0;
+
+        /// <summary>Információ mennyiség</summary>
+        public double I = 0;
     }
 }
