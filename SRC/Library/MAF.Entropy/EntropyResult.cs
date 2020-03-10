@@ -1,4 +1,6 @@
-﻿namespace MAF.Entropy
+﻿using System.Collections.Generic;
+
+namespace MAF.Entropy
 {
     /// <summary>Entrópia számítás eredményét leíró osztály.</summary>
     public class EntropyResult
@@ -20,6 +22,9 @@
         public int DifferentSignsCount = 0;
 
         /// <summary>A logika, ami alapján fel lett dolgozva a szöveg.</summary>
-        public EntropyLogic Logic == null;
+        public EntropyLogic Logic = null;
+
+        /// <summary>Az egyes jelek és a hozzá tartozó adatok.</summary>
+        public List<EntropyItem> ItemList = new List<EntropyItem>();
     }
 }
