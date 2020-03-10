@@ -1,19 +1,28 @@
-﻿namespace MAF.Entropy
+﻿using System;
+
+namespace MAF.Entropy
 {
     /// <summary>Entrópia számítást végző osztály.
     /// </summary>
     public class EntropyCalculator
     {
-        /// <summary>A forrás adat, ami feldolgozásra került.</summary>
-        public string SourceDataFile { get; private set; }
+        /// <summary>A legutoljára feldolgozott forrás adat.</summary>
+        public string SourceDataFile { get; private set; } = string.Empty;
 
-        /// <summary>Entrópia feldolgozó osztály konstruktora.</summary>
-        /// <param name="pSourceDataFile">Forrás adat.</param>
-        public EntropyCalculator(string pSourceDataFile)
+        /// <summary>Eredményfájl. Ide kerülnek be az entrópia számítás eredményei.</summary>
+        public string ResultFile { get; private set; } = string.Empty;
+
+        /// <summary>Entrópia feldolgozó osztály konstruktora, ami betölti a feldolgozás logikáját.</summary>
+        public EntropyCalculator()
         {
-            SourceDataFile = pSourceDataFile;
+            LoadLogic();
         }
 
 
+
+        private void LoadLogic()
+        {
+            
+        }
     }
 }
