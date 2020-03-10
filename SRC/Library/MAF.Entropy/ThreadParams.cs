@@ -7,6 +7,6 @@ namespace MAF.Entropy
     class ThreadParams
     {
         public List<string> TextList = new List<string>();
-        //public List<EntropyResult> EntropyResultList = new List<EntropyResult>();
+        public List<EntropyResult> EntropyResultList = new List<EntropyResult>();
     }
 }
