@@ -15,6 +15,9 @@ namespace MAF.Entropy
         /// <summary>Feldolgozási logikát leíró fájl.</summary>
         public string CalculationLogic { get; private set; } = C_DefaultLogicFile;
 
+        /// <summary>Ennyi szálon fogunk próbálkozni a feldolgozással, ha a szöveg mérete ezt igényli.</summary>
+        public int ThreadCount { get; private set; } = 1;
+
         /// <summary>Igaz, ha fut a feldolgozás és hamis, ha nem.</summary>
         public bool IsRunCalculation { get; private set; } = false;
 
