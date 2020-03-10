@@ -44,6 +44,7 @@
     <Compile Include="EntropyCalculationLogic.cs" />
     <Compile Include="EntropyItem.cs" />
     <Compile Include="EntropyLogic.cs" />
+    <Compile Include="EntropyResult.cs" />
     <Compile Include="IEntropy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegEx.cs" />
