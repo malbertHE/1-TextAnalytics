@@ -11,6 +11,7 @@ namespace MAF.Entropy.Test
         {
             EntropyResult er = new EntropyResult();
             Assert.IsTrue(er.ShannonEntropy == 0);
+            Assert.IsTrue(er.I == 0);
         }
     }
 }
