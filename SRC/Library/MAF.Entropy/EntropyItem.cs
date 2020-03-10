@@ -8,5 +8,8 @@
 
         /// <summary>A jel előfordulása.</summary>
         public uint Count;
+
+        /// <summary>Relatív gyakoriság értéke.</summary>
+        public double P;
     }
 }
