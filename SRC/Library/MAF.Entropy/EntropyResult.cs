@@ -20,6 +20,6 @@
         public int DifferentSignsCount = 0;
 
         /// <summary>A logika, ami alapján fel lett dolgozva a szöveg.</summary>
-        public EntropyLogic Logic;
+        public EntropyLogic Logic == null;
     }
 }
