@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization;
 
 namespace MAF.Entropy
 {
@@ -9,7 +11,9 @@ namespace MAF.Entropy
         /// <summary>Alapértelmezett logika.</summary>
         public const string C_DefaultLogicFile = "Logic\\ecl.xml";
 
-        /// <summary>A legutoljára feldolgozott forrás adat.</summary>
+        public const string C_SourceFileNotExist = "Nem létezik a következő feldolgozandó fájl: {0} !";
+
+        /// <summary>Forrás fájl, amit legutoljára kíséreltek meg feldolgozni.</summary>
         public string SourceDataFile { get; private set; } = string.Empty;
 
         /// <summary>Feldolgozási logikát leíró fájl.</summary>
@@ -42,12 +46,42 @@ namespace MAF.Entropy
         public void RunCalculation(string pSourceDataFile)
         {
             SourceDataFile = pSourceDataFile;
+            InitCalc();
+            CheckSourceDataFile();
+
         }
 
+
+        #region Privát tertület!
 
         private void LoadLogic()
         {
             
+        }
+
+        private void InitCalc()
+        {
+            
+        }
+
+        private void CheckSourceDataFile()
+        {
+            if (!File.Exists(SourceDataFile))
+                throw new EntropyCalculatorException(string.Format(C_SourceFileNotExist, SourceDataFile));
+        }
+
+        #endregion
+    }
+
+    [Serializable]
+    public class EntropyCalculatorException : Exception
+    {
+        public EntropyCalculatorException(string message) : base(message)
+        {
+        }
+
+        public EntropyCalculatorException(string message, Exception innerException) : base(message, innerException)
+        {
         }
     }
 }

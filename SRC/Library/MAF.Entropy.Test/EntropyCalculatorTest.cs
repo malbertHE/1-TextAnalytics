@@ -22,7 +22,7 @@ namespace MAF.Entropy.Test
         [TestMethod]
         public void TestRunCalculation()
         {
-            const string C_TestSourceFile = "TestFiles\test1.xml";
+            const string C_TestSourceFile = @"TestFiles\test1.txt";
             ec.RunCalculation(C_TestSourceFile);
             Assert.IsTrue(ec.SourceDataFile == C_TestSourceFile);
         }
