@@ -5,89 +5,23 @@
     <I>8</I>
     <Hmax>3</Hmax>
     <SignCount>8</SignCount>
-    <n>2</n>
+    <DifferentSignsCount>2</DifferentSignsCount>
     <Logic Name="Minden karakterre" Trim="" NoEmpty="false">
       <Regex Pattern="." Replace="" RegexOptions="" ToLower="false" />
     </Logic>
     <ItemList>
-      <Item>
+      <EntropyItem>
         <Value>a</Value>
         <Count>4</Count>
-        <p>0.5</p>
+        <P>0.5</P>
         <I>1</I>
-      </Item>
-      <Item>
+      </EntropyItem>
+      <EntropyItem>
         <Value>A</Value>
         <Count>4</Count>
-        <p>0.5</p>
+        <P>0.5</P>
         <I>1</I>
-      </Item>
-    </ItemList>
-  </EntropyResult>
-  <EntropyResult>
-    <ShannonEntropy>1</ShannonEntropy>
-    <I>8</I>
-    <Hmax>3</Hmax>
-    <SignCount>8</SignCount>
-    <n>2</n>
-    <Logic Name="Csak alfanumerikus" Trim="" NoEmpty="false">
-      <Regex Pattern="\w" Replace="" RegexOptions="" ToLower="false" />
-    </Logic>
-    <ItemList>
-      <Item>
-        <Value>a</Value>
-        <Count>4</Count>
-        <p>0.5</p>
-        <I>1</I>
-      </Item>
-      <Item>
-        <Value>A</Value>
-        <Count>4</Count>
-        <p>0.5</p>
-        <I>1</I>
-      </Item>
-    </ItemList>
-  </EntropyResult>
-  <EntropyResult>
-    <ShannonEntropy>1</ShannonEntropy>
-    <I>8</I>
-    <Hmax>3</Hmax>
-    <SignCount>8</SignCount>
-    <n>2</n>
-    <Logic Name="Csak betűk" Trim="" NoEmpty="false">
-      <Regex Pattern="[^\d\W]" Replace="" RegexOptions="" ToLower="false" />
-    </Logic>
-    <ItemList>
-      <Item>
-        <Value>a</Value>
-        <Count>4</Count>
-        <p>0.5</p>
-        <I>1</I>
-      </Item>
-      <Item>
-        <Value>A</Value>
-        <Count>4</Count>
-        <p>0.5</p>
-        <I>1</I>
-      </Item>
-    </ItemList>
-  </EntropyResult>
-  <EntropyResult>
-    <ShannonEntropy>0</ShannonEntropy>
-    <I>0</I>
-    <Hmax>0</Hmax>
-    <SignCount>1</SignCount>
-    <n>1</n>
-    <Logic Name="Szavak" Trim="" NoEmpty="false">
-      <Regex Pattern="\w+" Replace="" RegexOptions="IgnoreCase" ToLower="true" />
-    </Logic>
-    <ItemList>
-      <Item>
-        <Value>aaaaaaaa</Value>
-        <Count>1</Count>
-        <p>1</p>
-        <I>0</I>
-      </Item>
+      </EntropyItem>
     </ItemList>
   </EntropyResult>
   <EntropyResult>
@@ -95,63 +29,129 @@
     <I>0</I>
     <Hmax>-INF</Hmax>
     <SignCount>0</SignCount>
-    <n>0</n>
-    <Logic Name="Csak írásjelek" Trim="" NoEmpty="false">
-      <Regex Pattern="[^\d\w ]" Replace="" RegexOptions="" ToLower="false" />
-    </Logic>
-    <ItemList />
-  </EntropyResult>
-  <EntropyResult>
-    <ShannonEntropy>1</ShannonEntropy>
-    <I>8</I>
-    <Hmax>3</Hmax>
-    <SignCount>8</SignCount>
-    <n>2</n>
-    <Logic Name="Szóközök nélkül" Trim="" NoEmpty="false">
-      <Regex Pattern="\S" Replace="" RegexOptions="" ToLower="false" />
-    </Logic>
-    <ItemList>
-      <Item>
-        <Value>a</Value>
-        <Count>4</Count>
-        <p>0.5</p>
-        <I>1</I>
-      </Item>
-      <Item>
-        <Value>A</Value>
-        <Count>4</Count>
-        <p>0.5</p>
-        <I>1</I>
-      </Item>
-    </ItemList>
-  </EntropyResult>
-  <EntropyResult>
-    <ShannonEntropy>0</ShannonEntropy>
-    <I>0</I>
-    <Hmax>-INF</Hmax>
-    <SignCount>0</SignCount>
-    <n>0</n>
+    <DifferentSignsCount>0</DifferentSignsCount>
     <Logic Name="Csak numerikus" Trim="" NoEmpty="false">
       <Regex Pattern="\d" Replace="" RegexOptions="" ToLower="false" />
     </Logic>
     <ItemList />
   </EntropyResult>
   <EntropyResult>
+    <ShannonEntropy>1</ShannonEntropy>
+    <I>8</I>
+    <Hmax>3</Hmax>
+    <SignCount>8</SignCount>
+    <DifferentSignsCount>2</DifferentSignsCount>
+    <Logic Name="Csak alfanumerikus" Trim="" NoEmpty="false">
+      <Regex Pattern="\w" Replace="" RegexOptions="" ToLower="false" />
+    </Logic>
+    <ItemList>
+      <EntropyItem>
+        <Value>a</Value>
+        <Count>4</Count>
+        <P>0.5</P>
+        <I>1</I>
+      </EntropyItem>
+      <EntropyItem>
+        <Value>A</Value>
+        <Count>4</Count>
+        <P>0.5</P>
+        <I>1</I>
+      </EntropyItem>
+    </ItemList>
+  </EntropyResult>
+  <EntropyResult>
+    <ShannonEntropy>1</ShannonEntropy>
+    <I>8</I>
+    <Hmax>3</Hmax>
+    <SignCount>8</SignCount>
+    <DifferentSignsCount>2</DifferentSignsCount>
+    <Logic Name="Szóközök nélkül" Trim="" NoEmpty="false">
+      <Regex Pattern="\S" Replace="" RegexOptions="" ToLower="false" />
+    </Logic>
+    <ItemList>
+      <EntropyItem>
+        <Value>a</Value>
+        <Count>4</Count>
+        <P>0.5</P>
+        <I>1</I>
+      </EntropyItem>
+      <EntropyItem>
+        <Value>A</Value>
+        <Count>4</Count>
+        <P>0.5</P>
+        <I>1</I>
+      </EntropyItem>
+    </ItemList>
+  </EntropyResult>
+  <EntropyResult>
     <ShannonEntropy>0</ShannonEntropy>
     <I>0</I>
     <Hmax>0</Hmax>
     <SignCount>1</SignCount>
-    <n>1</n>
+    <DifferentSignsCount>1</DifferentSignsCount>
     <Logic Name="Mondatok" Trim=" " NoEmpty="true">
       <Regex Pattern="(\.\.\.|[úu]n\.|pl\.|.*?)+(\.|\?|!|$)" Replace="" RegexOptions="IgnoreCase" ToLower="false" />
     </Logic>
     <ItemList>
-      <Item>
+      <EntropyItem>
         <Value>aAaAaaAA</Value>
         <Count>1</Count>
-        <p>1</p>
+        <P>1</P>
         <I>0</I>
-      </Item>
+      </EntropyItem>
     </ItemList>
+  </EntropyResult>
+  <EntropyResult>
+    <ShannonEntropy>0</ShannonEntropy>
+    <I>0</I>
+    <Hmax>0</Hmax>
+    <SignCount>1</SignCount>
+    <DifferentSignsCount>1</DifferentSignsCount>
+    <Logic Name="Szavak" Trim="" NoEmpty="false">
+      <Regex Pattern="\w+" Replace="" RegexOptions="IgnoreCase" ToLower="true" />
+    </Logic>
+    <ItemList>
+      <EntropyItem>
+        <Value>aaaaaaaa</Value>
+        <Count>1</Count>
+        <P>1</P>
+        <I>0</I>
+      </EntropyItem>
+    </ItemList>
+  </EntropyResult>
+  <EntropyResult>
+    <ShannonEntropy>1</ShannonEntropy>
+    <I>8</I>
+    <Hmax>3</Hmax>
+    <SignCount>8</SignCount>
+    <DifferentSignsCount>2</DifferentSignsCount>
+    <Logic Name="Csak betűk" Trim="" NoEmpty="false">
+      <Regex Pattern="[^\d\W]" Replace="" RegexOptions="" ToLower="false" />
+    </Logic>
+    <ItemList>
+      <EntropyItem>
+        <Value>a</Value>
+        <Count>4</Count>
+        <P>0.5</P>
+        <I>1</I>
+      </EntropyItem>
+      <EntropyItem>
+        <Value>A</Value>
+        <Count>4</Count>
+        <P>0.5</P>
+        <I>1</I>
+      </EntropyItem>
+    </ItemList>
+  </EntropyResult>
+  <EntropyResult>
+    <ShannonEntropy>0</ShannonEntropy>
+    <I>0</I>
+    <Hmax>-INF</Hmax>
+    <SignCount>0</SignCount>
+    <DifferentSignsCount>0</DifferentSignsCount>
+    <Logic Name="Csak írásjelek" Trim="" NoEmpty="false">
+      <Regex Pattern="[^\d\w ]" Replace="" RegexOptions="" ToLower="false" />
+    </Logic>
+    <ItemList />
   </EntropyResult>
 </ArrayOfEntropyResult>

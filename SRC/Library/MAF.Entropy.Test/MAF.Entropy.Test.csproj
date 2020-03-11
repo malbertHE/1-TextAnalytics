@@ -72,6 +72,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="SampleFiles\Test1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestFiles\test1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
