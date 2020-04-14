@@ -1,0 +1,5 @@
+Entrópia számítás elkezdődött.
+Entrópia számítás befejeződött.
+Feldolgozott adat fájl: {0}
+Eredmény fájl: {1}
+A feldolgozás sikeres!

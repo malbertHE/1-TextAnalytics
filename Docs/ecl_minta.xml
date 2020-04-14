@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntropyCalculationLogic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntropyLogicList Name="A logika neve" ToLower="Kisbetűre konvertálja a szöveget feldolgozás előtt. Hasonló működési módot lehet elérni a reguláris kifejezés opciójának megfelelő beállításával, de úgy a felsorolt jelkészletben eltérések lesznek. Megadható értékek: true/false. True esetén kisbetűre konvertál, false esetén nem. Opcionális. Alapértelmezés: false" Trim="A feldolgozott eredmények tartalmazhatják-e az itt megadott karaktert az eredmény karakterlánc elején vagy végén. Ha ide megadunk egy karaktert akkor az eredmény értékekben ezek a karakterlánc elejéről és végéről törlődni fognak. Opcionális. Alapértelmezésben nem töröl semmit." NoEmpty="Üres karakterláncot eredménynek tekintünk-e vagy sem. Felvehető érték: true/false Opcionális. Alapértelmezés: false.">
+    <Regex Pattern="A jelet meghatározó reguláris kifejezés" RegexOptions="Reguláris kifejezés opciói. Opcionális, nem kötelező megadni. Ha nincs megadva, akkor a System.Text.RegularExpressions.Regex alapértelmezése van érvényben."/>
+  </EntropyLogicList>
+</EntropyCalculationLogic>

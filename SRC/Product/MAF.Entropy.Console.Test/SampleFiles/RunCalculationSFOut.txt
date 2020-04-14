@@ -1,0 +1,2 @@
+Entrópia számítás elkezdődött.
+Entrópia számítás befejeződött. A feldolgozás sikertelen!

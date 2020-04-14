@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEntropyResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntropyResult>
+    
+    <ShannonEntropy>Shannon féle entrópia értéke.</ShannonEntropy>
+    <I>Információtartalom értéke.</I>
+    <Hmax>Maximális entrópia száma.</Hmax>
+    <SignCount>Összes jel száma.</SignCount>
+    <n>Különböző jelek száma.</n>
+    <Logic>A feldolgozás logikájának paraméterei.</Logic>
+	
+	<!-- Az egyes jelekhez tartozó információk. -->
+    <ItemList>
+      <Item>
+        <Value>A jel.</Value>
+        <Count>Előfordulási száma a szövegben.</Count>
+        <p>Relatív gyakoriság.</p>
+        <I></I>
+      </Item>
+    </ItemList>
+	
+  </EntropyResult>
+</ArrayOfEntropyResult>

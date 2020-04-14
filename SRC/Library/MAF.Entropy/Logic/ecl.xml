@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntropyCalculationLogic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntropyLogicList Name="Minden karakterre">
+    <Regex Pattern="."/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Szóközök nélkül">
+    <Regex Pattern="\S"/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Csak alfanumerikus">
+    <Regex Pattern="\w"/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Csak numerikus">
+    <Regex Pattern="\d"/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Csak betűk">
+    <Regex Pattern="[^\d\W]"/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Csak írásjelek">
+    <Regex Pattern="[^\d\w ]"/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Szavak">
+    <Regex Pattern="\w+" RegexOptions="IgnoreCase" ToLower="true"/>
+  </EntropyLogicList>
+  <EntropyLogicList Name="Mondatok" Trim=" " NoEmpty="true">
+    <Regex Pattern="(\.\.\.|[úu]n\.|pl\.|.*?)+(\.|\?|!|$)" RegexOptions="IgnoreCase"/>
+  </EntropyLogicList>
+</EntropyCalculationLogic>
