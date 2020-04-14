@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy", "Library\MAF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.Test", "Library\MAF.Entropy.Test\MAF.Entropy.Test.csproj", "{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{D34FEA1F-302C-406A-9759-7A7EDC34BDCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.Console", "Product\MAF.Entropy.Console\MAF.Entropy.Console.csproj", "{4754BE30-2B5A-40E8-ADD5-DC60EE410976}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.Console.Test", "Product\MAF.Entropy.Console.Test\MAF.Entropy.Console.Test.csproj", "{EA1FA194-968E-4C79-A22E-805390ED3E68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,14 @@ Global
 		{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4754BE30-2B5A-40E8-ADD5-DC60EE410976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4754BE30-2B5A-40E8-ADD5-DC60EE410976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4754BE30-2B5A-40E8-ADD5-DC60EE410976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4754BE30-2B5A-40E8-ADD5-DC60EE410976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6973D659-E2DB-49D6-909F-E5195CF30DC6} = {92641381-F1A0-4399-AD7E-54238FF10B22}
 		{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5} = {92641381-F1A0-4399-AD7E-54238FF10B22}
+		{4754BE30-2B5A-40E8-ADD5-DC60EE410976} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
+		{EA1FA194-968E-4C79-A22E-805390ED3E68} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A4E069A-6CAE-42B7-8630-8433B5A5A06F}

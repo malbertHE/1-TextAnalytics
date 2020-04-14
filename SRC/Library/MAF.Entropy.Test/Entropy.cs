@@ -2,32 +2,37 @@
 {
     class Entropy : IEntropy
     {
+        public const string C_DefaultSourceDataFile = "";
+        public const int C_DefaultThreadCount = 1;
+        public const int C_DefaultRunningThreadCount = 1;
+        public const string C_DefaultCalculationLogic = "";
+        public const string C_DefaultResultFile = "";
+        public const bool C_DefaultIsRunCalculation = false;
+
+
         public const string C_TestResultFile = "test.xml";
 
-        public string SourceDataFile { get; } = string.Empty;
+        public string SourceDataFile { get; } = C_DefaultSourceDataFile;
 
-        public int ThreadCount { get; } = 1;
+        public int ThreadCount { get; } = C_DefaultThreadCount;
 
-        public int RunningThreadCount { get; } = 1;
+        public int RunningThreadCount { get; } = C_DefaultRunningThreadCount;
 
-        public bool IsRunCalculation { get { return isRunCalculation; } }
+        public bool IsRunCalculation { get; private set; } = C_DefaultIsRunCalculation;
 
-        public string ResultFile { get { return resultFile; } }
+        public string ResultFile { get; private set; } = C_TestResultFile;
 
-        public string CalculationLogic { get; } = string.Empty;
+        public string CalculationLogic { get; } = C_DefaultCalculationLogic;
 
-        public void RunCalculation()
+        public void RunCalculation(string pSourceDataFile)
         {
-            isRunCalculation = true;
+            IsRunCalculation = true;
         }
 
         public void WaitForAll()
         {
-            isRunCalculation = false;
-            resultFile = C_TestResultFile;
+            IsRunCalculation = false;
+            ResultFile = C_TestResultFile;
         }
-
-        string resultFile = string.Empty;
-        bool isRunCalculation = false;
     }
 }

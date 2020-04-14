@@ -1,0 +1,4 @@
+Entrópia számítás elkezdődött.
+Entrópia számítás befejeződött. A feldolgozás sikertelen!
+Nem létezik a következő feldolgozandó fájl: {0} !
+Súgó kiiratásához indítsa el a programot paraméterek nélkül!

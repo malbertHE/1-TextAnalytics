@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MAF.Entropy")]
-[assembly: AssemblyDescription("Entrópia számító szolgáltatások könyvtára.")]
+[assembly: AssemblyTitle("MAF.Entropy.Console")]
+[assembly: AssemblyDescription("Entrópia számító konzolos alkalmazás.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MAF")]
-[assembly: AssemblyProduct("MAF.Entropy")]
+[assembly: AssemblyProduct("MAF.Entropy.Console")]
 [assembly: AssemblyCopyright("Copyright © MAF 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6973d659-e2db-49d6-909f-e5195cf30dc6")]
+[assembly: Guid("4754be30-2b5a-40e8-add5-dc60ee410976")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.123")]
-[assembly: AssemblyFileVersion("1.0.0.123")]
+[assembly: AssemblyFileVersion("1.0.0.1")]

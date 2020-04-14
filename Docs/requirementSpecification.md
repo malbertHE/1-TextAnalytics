@@ -14,7 +14,7 @@ A cél megvalósítása érdekében szükséges egy entrópia számító alkalma
 
 - Bemenet: olyan adatfolyam, mely kizárólag az információt hordozza, vagyis nem tartalmaz például a megjelenítés számára vezérlő, illetve formázó karaktereket, csak és kizárólag azt a nyers információt tartalmazza, amire az entrópiát ki akarjuk számolni.
 - Entrópia számítás: lásd: Bevezetés az informatikába[1] könyv "2.5. Az entrópia és tulajdonságai" alfejezetében található definíció.
-- Jel: a bemenet karakterei
+- Jel: reguláris kifejezéssel megadott minták, például az egyes karakterek, szavak, stb.
 - Entrópia számító program: A bemenet alapján a kimenetet előállító program. A továbbiakban a neve: TextAnalytics.
 - Kimenet: az entrópia számítás részletes eredménye, kiértékelhető formában.
 
@@ -35,11 +35,9 @@ További követelmények:
 
 ## Fejlesztői követelmények
 
-- A fejlesztésnél TDD módszertan alkalmazása kötelező.
 - A fejlesztésnél rétegtechnológia alkalmazása kötelező. Jelen program 2 rétegből kell felépüljön, felület és üzleti logika réteg.
-- Az OOP szabályainak betartása kötelező.
 - Kódkonvencióként a felhasznált programozási nyelvhez általánosan elfogadott kódolási konvenciókat kell alkalmazni.
-- A betartandó alapelvek: GOF és SOLID elvek.
+- Törekedni kell az OOP szabályainak betartására valamint az általános alapelvek, mint a GOF és SOLID elvek betartására.
 
 ## Irodalomjegyzék
 |1| Dr. Kovács Emőd, Bíró Csaba, Dr. Perge Imre: Bevezetés az informatikába, Eger, 2013, Eszterházy Károly Főiskola-Matematikai és Informatikai Intézet

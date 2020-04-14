@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace MAF.Entropy
 {
-    /// <summary>Entrópia számítást végző osztály.</summary>
-    public class EntropyCalculator
+    /// <summary>Entrópia számítást végző osztály. Egyetlen célja van, szövegből entrópiát számít.</summary>
+    public class EntropyCalculator : IEntropy
     {
         /// <summary>Az eredmények ebbe a mappába kerülenk bele.</summary>
         public const string C_DefaultResultDir = "Result";
@@ -20,7 +20,7 @@ namespace MAF.Entropy
         public const string C_DefaultLogicFile = "Logic\\ecl.xml";
 
         /// <summary>Alapértelmezett minimum feldolgozási blokk méret. Maximum ekkora szövegblokk dolgozódik fel egy szálon.</summary>
-        public const int C_DefaultMinBlockSize = 640 * 1024; //Mert ez elég kell legyen mindenkinek :) !
+        public const int C_DefaultMinBlockSize = 640 * c_KByte; //Mert ez elég kell legyen mindenkinek :) !
 
         /// <summary>A konstruktor ezt a hibát dobja, ha nem létezik a logikát leíró fájl!</summary>
         public const string C_LogicFileNotExist = "Nem létezik a következő logikát leíró fájl: {0} !";
@@ -123,6 +123,8 @@ namespace MAF.Entropy
 
         #region Privát tertület!
 
+        const int c_KByte = 1024;
+
         EntropyCalculationLogic logic;
         Thread threadMain;
         ThreadObject[] threadObjects;
@@ -176,18 +178,18 @@ namespace MAF.Entropy
         private long GetFileSize()
         {
             FileInfo fi = new FileInfo(SourceDataFile);
-            if (fi.Length < 1024)
+            if (fi.Length < c_KByte)
                 ThreadCount = 1;
             return fi.Length;
         }
 
         private void ThrowExceptionIfNotEnoughtMemory(long pFileSize)
         {
-            if (1024 * 1024 * 10 < pFileSize)
+            if (c_KByte * c_KByte * 10 < pFileSize)
             {
                 PerformanceCounter pCntr = new PerformanceCounter("Memory", "Available KBytes");
-                long memAvailable = (long)(pCntr.NextValue() * 1024);
-                long mem65 = (long)((memAvailable / 0.65) / 2); // azért osztva 2, mert unicode karakterek 2 bájton vannak ábrázolva
+                long memAvailable = (long)(pCntr.NextValue() * c_KByte);
+                long mem65 = (long)((memAvailable / 0.65));
                 if (mem65 < (long)pFileSize)
                     throw new EntropyCalculatorException(C_MemoryError);
             }
@@ -244,7 +246,6 @@ namespace MAF.Entropy
                     threadObjects[i].ThreadJoin();
                 SumThreadResult();
                 threadObjects = null;
-                threadMain.Abort();
             }
             catch (Exception ex)
             {
@@ -295,7 +296,7 @@ namespace MAF.Entropy
             {
                 string value = m.Value;
                 if (pEntropyLogic.Trim != string.Empty)
-                    value = value.Trim(); //ToDo: ezt át kéne írni, hogy jó legyen. Azért nem jó, mert nem a megadott értéket trimmeli.
+                    value = value.Trim();
                 if (pEntropyLogic.NoEmpty && value == string.Empty)
                     continue;
                 EntropyItem it = pEntropyResult.ItemList.Find(x => x.Value == value);
