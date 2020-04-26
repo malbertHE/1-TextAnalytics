@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{92641381-F1A0-4399-AD7E-54238FF10B22}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.Console", "Product\MAF.Entropy.Console\MAF.Entropy.Console.csproj", "{4754BE30-2B5A-40E8-ADD5-DC60EE410976}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.Console.Test", "Product\MAF.Entropy.Console.Test\MAF.Entropy.Console.Test.csproj", "{EA1FA194-968E-4C79-A22E-805390ED3E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.WPF.Test", "Product\MAF.Entropy.WPF.Test\MAF.Entropy.WPF.Test.csproj", "{498A0475-09FD-4C80-8F90-2AB4BB570209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.Entropy.WPF", "Product\MAF.Entropy.WPF\MAF.Entropy.WPF.csproj", "{A8EE6859-A4F2-4E84-85CA-8E78BDDA5A1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1FA194-968E-4C79-A22E-805390ED3E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{498A0475-09FD-4C80-8F90-2AB4BB570209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498A0475-09FD-4C80-8F90-2AB4BB570209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498A0475-09FD-4C80-8F90-2AB4BB570209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{498A0475-09FD-4C80-8F90-2AB4BB570209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8EE6859-A4F2-4E84-85CA-8E78BDDA5A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8EE6859-A4F2-4E84-85CA-8E78BDDA5A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8EE6859-A4F2-4E84-85CA-8E78BDDA5A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8EE6859-A4F2-4E84-85CA-8E78BDDA5A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5} = {92641381-F1A0-4399-AD7E-54238FF10B22}
 		{4754BE30-2B5A-40E8-ADD5-DC60EE410976} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
 		{EA1FA194-968E-4C79-A22E-805390ED3E68} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
+		{498A0475-09FD-4C80-8F90-2AB4BB570209} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
+		{A8EE6859-A4F2-4E84-85CA-8E78BDDA5A1B} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A4E069A-6CAE-42B7-8630-8433B5A5A06F}
