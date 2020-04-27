@@ -1,4 +1,4 @@
-﻿using MAF.Entropy.Collection;
+﻿using MAF.Collection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.IO;

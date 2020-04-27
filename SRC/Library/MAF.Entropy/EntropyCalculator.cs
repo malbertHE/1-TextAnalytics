@@ -1,4 +1,4 @@
-﻿using MAF.Entropy.Collection;
+﻿using MAF.Collection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

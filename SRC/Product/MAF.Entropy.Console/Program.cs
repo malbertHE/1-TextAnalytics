@@ -1,4 +1,4 @@
-﻿using MAF.Entropy.Collection;
+﻿using MAF.Collection;
 using System;
 using System.IO;
 using System.Timers;

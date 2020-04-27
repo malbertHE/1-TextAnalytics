@@ -41,8 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collection\Cryptography.cs" />
-    <Compile Include="Collection\XMLObject.cs" />
     <Compile Include="EntropyCalculationLogic.cs" />
     <Compile Include="EntropyCalculator.cs" />
     <Compile Include="EntropyItem.cs" />
@@ -61,6 +59,12 @@
     <Content Include="TestData\Test1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MAF.Collection\MAF.Collection.csproj">
+      <Project>{3a33363d-f681-4391-a776-630cd4710706}</Project>
+      <Name>MAF.Collection</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F886A8FB-F3D4-4FED-98A1-7EEEF9169DD5}</ProjectGuid>
+    <ProjectGuid>{76B1BBE7-17CC-44EB-9204-9CFCA4AC9E7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MAF.Entropy.Test</RootNamespace>
-    <AssemblyName>MAF.Entropy.Test</AssemblyName>
+    <RootNamespace>MAF.Collection.Test</RootNamespace>
+    <AssemblyName>MAF.Collection.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,34 +49,20 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entropy.cs" />
-    <Compile Include="EntropyCalculationLogicTest.cs" />
-    <Compile Include="EntropyCalculatorTest.cs" />
-    <Compile Include="EntropyItemTest.cs" />
-    <Compile Include="EntropyLogicTest.cs" />
-    <Compile Include="EntropyResultTest.cs" />
-    <Compile Include="IEntropyTest.cs" />
+    <Compile Include="CryptographyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegExTest.cs" />
+    <Compile Include="XMLObjectTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MAF.Collection\MAF.Collection.csproj">
-      <Project>{3A33363D-F681-4391-A776-630CD4710706}</Project>
+      <Project>{3a33363d-f681-4391-a776-630cd4710706}</Project>
       <Name>MAF.Collection</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MAF.Entropy\MAF.Entropy.csproj">
-      <Project>{6973d659-e2db-49d6-909f-e5195cf30dc6}</Project>
-      <Name>MAF.Entropy</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="SampleFiles\Test1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="TestFiles\test1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

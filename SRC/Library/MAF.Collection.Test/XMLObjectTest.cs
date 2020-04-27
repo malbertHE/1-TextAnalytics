@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using MAF.Entropy.Collection;
+using MAF.Collection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MAF.Entropy.Test.Collection
+namespace MAF.TextAnalytics.Test.Collection
 {
     [TestClass]
     public class XMLObjectTest

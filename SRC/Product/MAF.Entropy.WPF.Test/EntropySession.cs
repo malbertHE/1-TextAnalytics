@@ -18,7 +18,6 @@ namespace MAF.Entropy.WPF.Test
             {
                 DesiredCapabilities appCapabilities = new DesiredCapabilities();
                 appCapabilities.SetCapability("app", SetEntropyApp());
-                Uri u = new Uri(WindowsApplicationDriverUrl);
                 session = new WindowsDriver<WindowsElement>(new Uri(WindowsApplicationDriverUrl), appCapabilities);
                 Assert.IsNotNull(session);
             }
