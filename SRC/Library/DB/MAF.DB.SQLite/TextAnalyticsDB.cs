@@ -9,7 +9,7 @@ namespace MAF.DB.SQLite
     public class TextAnalyticsDB : ITextAnalyticsDB
     {
         public const string C_DBName = "TextAnalyticsService.sqlite";
-        public const string C_UserIDNotExist = "Nem létezik a következő felhasználó azonosító: {0}!";
+        public const int C_BadUserID = -1;
 
         /// <summary>Konstruktor szükség esetén adatbázis fájl és táblák létrehozásával. A konstruktor az adatbázist megnyitja.</summary>
         public TextAnalyticsDB()
@@ -22,20 +22,20 @@ namespace MAF.DB.SQLite
         /// <summary>Megmondja, hogy dolgozták-e már fel az adott fájlt.</summary>
         /// <param name="pSourceFileMD5">Az eredetileg feldolgozott fájl MD5-je.</param>
         /// <returns>Igaz, ha már dolgozták fel a fájlt.</returns>
-        public bool FileExist(string pMD5)
+        public bool SourceFileExist(string pSourceFileMD5)
         {
-            string sql = $"SELECT 1 FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pMD5}'";
+            string sql = $"SELECT 1 FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pSourceFileMD5}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = c.ExecuteReader();
             return reader.HasRows;
         }
 
         /// <summary>MD5 alapján visszaad egy eredményfájl elérési útját, ill, ha nincs ilyen md5, akkor üres stringet.</summary>
-        /// <param name="pSourceFileMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
+        /// <param name="pResultFileMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
         /// <returns>A fájl elérési útja és neve vagy üres string.</returns>
-        public string GetResultDataFile(string pSourceFileMD5)
+        public string GetResultDataFile(string pResultFileMD5)
         {
-            string sql = $"SELECT {c_ResultFile} FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pSourceFileMD5}'";
+            string sql = $"SELECT {c_ResultFile} FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pResultFileMD5}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = c.ExecuteReader();
             if (!reader.HasRows)
@@ -45,13 +45,13 @@ namespace MAF.DB.SQLite
         }
 
         /// <summary>Egy feldolgozott fájl információinak elmentése adatbázisba.</summary>
-        /// <param name="pFile">Eredeti fájl.</param>
+        /// <param name="pSouceFile">Eredeti fájl.</param>
         /// <param name="pResultFile">Eredmény fájl.</param>
         /// <param name="pUserLoginName">Felhasznál login neve.</param>
-        public void SaveCalculationInfo(string pFile, string pResultFile, string pUserLoginName)
+        public void SaveCalculationInfo(string pSouceFile, string pResultFile, string pUserLoginName)
         {
             string userID = GetUserID(pUserLoginName);
-            SaveCalculation(pFile, pResultFile, userID);
+            SaveCalculation(pSouceFile, pResultFile, userID);
         }
 
         /// <summary>Felhasználó regisztrálása.</summary>
@@ -60,19 +60,16 @@ namespace MAF.DB.SQLite
         /// <param name="pPassword">Felhasználó jelszava.</param>
         public void SignUp(string pLoginName, string pUserName, string pPassword)
         {
-            if (UserExist(pLoginName, pUserName))
-                throw new Exception("Már létezik ilyen felhasználó azonosító!");
-
             string sql = $"insert into {c_UserTableName} ({c_UserLoginName}, {c_UserName}, {c_UserPassword}) values ('{pLoginName}', '{pUserName}', '{pPassword}')";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             command.ExecuteNonQuery();
         }
 
-        /// <summary>Felhasználó ellenőrzése, hogy létezik-e az adott jelszóval.</summary>
+        /// <summary>Felhasználó beléptetése.</summary>
         /// <param name="pLoginName">Felhasználó login neve.</param>
         /// <param name="pPassword">Felhasználó jelszava.</param>
-        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
-        public bool UserExist(string pLoginName, string pPassword)
+        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor visszaadja a felhasználó azonosítóját, különben .</returns>
+        public bool SignIn(string pLoginName, string pPassword)
         {
             string sql = $"SELECT 1 FROM {c_UserTableName} WHERE {c_UserLoginName} = '{pLoginName}' AND {c_UserPassword} = '{pPassword}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
@@ -80,6 +77,16 @@ namespace MAF.DB.SQLite
             return reader.HasRows;
         }
 
+        /// <summary>Felhasználó ellenőrzése, hogy létezik-e az adott jelszóval.</summary>
+        /// <param name="pLoginName">Felhasználó login neve.</param>
+        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
+        public bool UserExist(string pLoginName)
+        {
+            string sql = $"SELECT 1 FROM {c_UserTableName} WHERE {c_UserLoginName} = '{pLoginName}'";
+            SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteDataReader reader = c.ExecuteReader();
+            return reader.HasRows;
+        }
 
         const string c_UserTableName = "Users";
         const string c_UserID = "u_ID";
@@ -153,7 +160,7 @@ namespace MAF.DB.SQLite
         {
             string sourceMD5 = Cryptography.FileMD5Calculator(pFile);
             string resultMD5 = Cryptography.FileMD5Calculator(pResultFile);
-            if (FileExist(sourceMD5))
+            if (SourceFileExist(sourceMD5))
                 UpdateTextAnalytics(pFile, pResultFile, sourceMD5, resultMD5);
             else
                 InsertTextAnalytics(pFile, pResultFile, sourceMD5, resultMD5);
@@ -226,8 +233,6 @@ namespace MAF.DB.SQLite
             string sql = $"SELECT {c_UserID} FROM {c_UserTableName} WHERE {c_UserLoginName} = '{pUserLoginName}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = c.ExecuteReader();            
-            if (!reader.HasRows)
-                throw new TextAnalyticsDBException(string.Format(C_UserIDNotExist, pUserLoginName));
             reader.Read();
             return reader[c_UserID].ToString();
         }

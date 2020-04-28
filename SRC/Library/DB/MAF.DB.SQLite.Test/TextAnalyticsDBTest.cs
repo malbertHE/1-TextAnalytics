@@ -33,7 +33,7 @@ namespace MAF.DB.SQLite.Test
         [TestMethod]
         public void TestFileExistFalse()
         {
-            Assert.IsFalse(db.FileExist("ff4f45ca1b9a8609af6c4909d000ed43"));
+            Assert.IsFalse(db.SourceFileExist("ff4f45ca1b9a8609af6c4909d000ed43"));
         }
 
         [TestMethod]
@@ -46,8 +46,8 @@ namespace MAF.DB.SQLite.Test
             }
             catch(Exception ex)
             {
-                Assert.IsTrue(ex is TextAnalyticsDBException);
-                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_UserIDNotExist, c_NotExistUserLoginName));
+                Assert.IsTrue(ex is InvalidOperationException);
+                Assert.IsTrue(ex.Message == "No current row");
             }
         }
 
@@ -79,8 +79,8 @@ namespace MAF.DB.SQLite.Test
             }
             catch (Exception ex)
             {
-                Assert.IsTrue(ex is TextAnalyticsDBException);
-                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_UserIDNotExist, c_NotExistUserLoginName));
+                Assert.IsTrue(ex is InvalidOperationException);
+                Assert.IsTrue(ex.Message == "No current row");
             }
         }
 
@@ -112,8 +112,8 @@ namespace MAF.DB.SQLite.Test
             }
             catch (Exception ex)
             {
-                Assert.IsTrue(ex is TextAnalyticsDBException);
-                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_UserIDNotExist, c_NotExistUserLoginName));
+                Assert.IsTrue(ex is InvalidOperationException);
+                Assert.IsTrue(ex.Message == "No current row");
             }
         }
 
@@ -121,7 +121,7 @@ namespace MAF.DB.SQLite.Test
         public void TestSaveCalculationInfoAndFileExist()
         {
             db.SaveCalculationInfo(c_TextFile1, c_ResultTile1, c_TestUserLoginName);
-            Assert.IsTrue(db.FileExist("ff4f45ca1b9a8609af6c4909d000ed44"));
+            Assert.IsTrue(db.SourceFileExist("ff4f45ca1b9a8609af6c4909d000ed44"));
         }
 
         [TestMethod]

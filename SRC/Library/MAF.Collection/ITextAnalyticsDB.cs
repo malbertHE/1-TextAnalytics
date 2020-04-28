@@ -7,7 +7,7 @@
         /// <summary>Megmondja, hogy dolgozták-e már fel az adott fájlt.</summary>
         /// <param name="pSourceFileMD5">Az eredetileg feldolgozott fájl MD5-je.</param>
         /// <returns>Igaz, ha már dolgozták fel a fájlt.</returns>
-        bool FileExist(string pSourceFileMD5);
+        bool SourceFileExist(string pSourceFileMD5);
 
         /// <summary>MD5 alapján visszaad egy eredményfájl elérési útját, ill, ha nincs ilyen md5, akkor üres stringet.</summary>
         /// <param name="pSourceFileMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
@@ -26,10 +26,15 @@
 		/// <param name="pPassword">Felhasználó jelszava.</param>
 		void SignUp(string pLoginName, string pUserName, string pPassword);
 
-		/// <summary>Felhasználó ellenőrzése, hogy létezik-e az adott jelszóval.</summary>
+        /// <summary>Felhasználó beléptetése.</summary>
 		/// <param name="pLoginName">Felhasználó login neve.</param>
 		/// <param name="pPassword">Felhasználó jelszava.</param>
 		/// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
-		bool UserExist(string pLoginName, string pPassword);
-	}
+		bool SignIn(string pLoginName, string pPassword);
+
+        /// <summary>Felhasználó ellenőrzése, hogy létezik-e az adott jelszóval.</summary>
+        /// <param name="pLoginName">Felhasználó login neve.</param>
+        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
+        bool UserExist(string pLoginName);
+    }
 }
