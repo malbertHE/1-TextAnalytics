@@ -23,7 +23,7 @@ namespace MAF.TextAnalytics.Server.Test
         public void TestUserRegistrationAndCheckUserExist()
         {
             string userLoginName = GetTestUserLoginName();
-            db.SignUP(userLoginName, c_TestUserName, c_TestUserPass);
+            db.SignUp(userLoginName, c_TestUserName, c_TestUserPass);
             Assert.IsTrue(db.SignIn(userLoginName, c_TestUserPass));
         }
 
@@ -31,10 +31,10 @@ namespace MAF.TextAnalytics.Server.Test
         public void TestUserRegistrationFaliedUserExist()
         {
             string userLoginName = GetTestUserLoginName();
-            db.SignUP(userLoginName, c_TestUserName, c_TestUserPass);
+            db.SignUp(userLoginName, c_TestUserName, c_TestUserPass);
             try
             {
-                db.SignUP(userLoginName, c_TestUserName, c_TestUserPass);
+                db.SignUp(userLoginName, c_TestUserName, c_TestUserPass);
                 Assert.Fail();
             }
             catch(DataProviderException ex)
@@ -81,7 +81,7 @@ namespace MAF.TextAnalytics.Server.Test
         public void TestSaveCalculationInfo_NotExistFile()
         {
             string userLoginName = GetTestUserLoginName();
-            db.SignUP(userLoginName, c_TestUserName, c_TestUserPass);
+            db.SignUp(userLoginName, c_TestUserName, c_TestUserPass);
             try
             {
                 db.RunCalculation(c_NotExistFile, userLoginName);
@@ -97,7 +97,7 @@ namespace MAF.TextAnalytics.Server.Test
         public void TestRunCalculation()
         {
             string userLoginName = GetTestUserLoginName();
-            db.SignUP(userLoginName, c_TestUserName, c_TestUserPass);
+            db.SignUp(userLoginName, c_TestUserName, c_TestUserPass);
             db.RunCalculation(c_TextFile1, userLoginName);
             Assert.IsTrue(db.SourceFileExist("ff4f45ca1b9a8609af6c4909d000ed44"));
         }
@@ -107,7 +107,7 @@ namespace MAF.TextAnalytics.Server.Test
         {
             Assert.IsTrue(db.GetResultFile("ff4f45ca1b9a8609af6c4909d000ed34") == string.Empty);
             string userLoginName = GetTestUserLoginName();
-            db.SignUP(userLoginName, c_TestUserName, c_TestUserPass);
+            db.SignUp(userLoginName, c_TestUserName, c_TestUserPass);
             db.RunCalculation(c_TextFile1, userLoginName);
             Assert.IsTrue(File.Exists(db.GetResultFile("ff4f45ca1b9a8609af6c4909d000ed44")));
         }

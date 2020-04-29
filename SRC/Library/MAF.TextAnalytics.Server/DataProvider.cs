@@ -52,7 +52,7 @@ namespace MAF.TextAnalytics.Server
         /// <param name="pLoginName">Felhasználó login neve.</param>
         /// <param name="pUserName">Felhasználó teljes neve.</param>
         /// <param name="pPassword">Felhasználó jelszava.</param>
-        public void SignUP(string pLoginName, string pUserName, string pPassword)
+        public void SignUp(string pLoginName, string pUserName, string pPassword)
 		{
             if (db.UserExist(pLoginName))
                 throw new DataProviderException(C_UserExistError);
