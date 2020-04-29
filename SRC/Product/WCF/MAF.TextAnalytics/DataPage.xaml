@@ -1,0 +1,34 @@
+﻿<Page x:Class="MAF.TextAnalytics.DataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MAF.TextAnalytics"
+      mc:Ignorable="d" 
+      MinHeight="250" MinWidth="300"
+      Title="DataPage" Loaded="Page_Loaded">
+
+	<Grid>
+		<Grid.Background>
+			<RadialGradientBrush>
+				<GradientStop Color="White" Offset="1"/>
+				<GradientStop Color="#FFE7FD0B"/>
+			</RadialGradientBrush>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="30"></RowDefinition>
+		</Grid.RowDefinitions>
+		<DataGrid Name="StatisticsGrid" Background="Transparent" IsReadOnly="True" ColumnWidth="*" AutoGenerateColumns="False" 
+							  ItemsSource="{Binding Path=Elements[EntropyResult]}" MouseDoubleClick="StatisticsGrid_MouseDoubleClick">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Leírás" Binding="{Binding Path=Element[Logic].Attribute[Name].Value}" />
+				<DataGridTextColumn Header="Entrópia" Binding="{Binding Path=Element[ShannonEntropy].Value}" />
+				<DataGridTextColumn Header="Entrópia maximum" Binding="{Binding Path=Element[Hmax].Value}" />
+				<DataGridTextColumn Header="Összes jel száma" Binding="{Binding Path=Element[SignCount].Value}" />
+				<DataGridTextColumn Header="Különböző jelek darabszáma" Binding="{Binding Path=Element[n].Value}" />
+			</DataGrid.Columns>
+		</DataGrid>
+		<Button Grid.Row="1" Content="Új ellenőrzés" Click="Button_Click" Background="Transparent"/>
+	</Grid>
+</Page>

@@ -75,7 +75,7 @@ namespace MAF.WCFTextAnalyticsService
 
 		/// <summary>Felhasználói kijelentkezés.</summary>
 		/// <param name="pUserToken">Felhasználó azonosító token.</param>
-		public void LoginOut(string pUserToken)
+		public void LogOut(string pUserToken)
 		{
 			UserLoginedInfo uli = allLoginedUsers.Find(x => x.Token == pUserToken);
 			if (uli == null)
@@ -90,22 +90,22 @@ namespace MAF.WCFTextAnalyticsService
 		#region Szöveg ellemzés szolgáltatásai.
 
 		/// <summary>Leellenőrzi, hogy ezt a fájlt korábban feldolgozták-e már.</summary>
-		/// <param name="pTextFileMD5">Fájl MD5 kódja.</param>
+		/// <param name="pSourceFileMD5">Fájl MD5 kódja.</param>
 		/// <returns>Ha már feldolgozták, akkor igazat ad vissza, különben hamisat.</returns>
-		public bool FileExist(string pTextFileMD5)
+		public bool SourceFileExist(string pSourceFileMD5)
         {
-            return r.SourceFileExist(pTextFileMD5);
+            return r.SourceFileExist(pSourceFileMD5);
         }
 
         /// <summary>Megadott md5 alapján megkeressük, hogy volt-e már feldolgozva az a fájl. Ha igen, akkor visszaadjuk
         /// a feldolgozás eredményét, ha nem, akkor <see cref="TextAnalyticsServiceException"/> hibát dob.</summary>
-        /// <param name="pTextFileMD5">Eredeti feldolgozandó fájl md5-je.</param>
+        /// <param name="pResultFileMD5">Eredeti feldolgozandó fájl md5-je.</param>
         /// <returns>Feldolgozás eredménye.</returns>
-        public FileDownloadReturnMessage GetResultData(FileDownloadMessage pTextFileMD5)
+        public FileDownloadReturnMessage GetResultFile(FileDownloadMessage pResultFileMD5)
         {
             try
             {
-                string resultFile = r.GetResultFile(pTextFileMD5.MD5);
+                string resultFile = r.GetResultFile(pResultFileMD5.MD5);
                 if (resultFile == string.Empty)
                     throw new TextAnalyticsServiceException("Nincs ilyen feldolgozott fájl!");
                 return StreamToFileDownloadReturnMessage(resultFile);
@@ -118,24 +118,24 @@ namespace MAF.WCFTextAnalyticsService
         }
 
 		/// <summary>Szöveges fájl feldolgozása.</summary>
-		/// <param name="pTXTFile">Feldolgozandó szöveges fájl.</param>
+		/// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
 		/// <param name="pUserToken">Feldolgozandó token azonosító.</param>
 		/// <returns>Feldolgozás eredménye.</returns>
-		public FileDownloadReturnMessage RunCalculation(FileUploadMessage pTXTFile)
+		public FileDownloadReturnMessage RunCalculation(FileUploadMessage pSourceFile)
         {
             try
             {
-                if (!GetStatus(pTXTFile.UserToken))
+                if (!GetStatus(pSourceFile.UserToken))
                     throw new TextAnalyticsServiceException("Csak bejelentkezett felhasználó veheti igénybe a szolgáltatást!");
 
 				//Meghatározzuk, hogy a szerveren hova mentsük el a fájlt.
-				string file = Path.Combine(c_TextFilePath, pTXTFile.Filename);
+				string file = Path.Combine(c_TextFilePath, pSourceFile.Filename);
 
                 //Feltöltjük a szerverre a fájlt.
-                StreamFunc.StreamToFile(pTXTFile.FileByteStream, file);
+                StreamFunc.StreamToFile(pSourceFile.FileByteStream, file);
 				
 				//Elvégezzük a fájl feldolgozását és az eredmény fájlt visszaküldjük.
-				string resultFile = r.RunCalculation(file, allLoginedUsers.Find(x => x.Token == pTXTFile.UserToken).LoginName);
+				string resultFile = r.RunCalculation(file, allLoginedUsers.Find(x => x.Token == pSourceFile.UserToken).LoginName);
                 return StreamToFileDownloadReturnMessage(resultFile);
             }
             catch (Exception ex)

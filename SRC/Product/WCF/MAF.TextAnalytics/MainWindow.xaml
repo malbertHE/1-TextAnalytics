@@ -1,0 +1,35 @@
+﻿<Window x:Class="MAF.TextAnalytics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAF.TextAnalytics"
+        mc:Ignorable="d"
+        Title="Szöveg ellemzés" Height="600" Width="800" Loaded="Window_Loaded">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="20"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="130"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid Name="gButtons" Background="Gray">
+				<Button x:Name="bLogin" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="15,35,0,0" VerticalAlignment="Top" Width="102" IsEnabled="False" Click="bLogin_Click"/>
+				<Button x:Name="bCheck" Content="Ellentőrzés" HorizontalAlignment="Left" Margin="15,78,0,0" VerticalAlignment="Top" Width="102" IsEnabled="False" Click="bCheck_Click"/>
+				<Button x:Name="bRunAnalitics" HorizontalAlignment="Left" Margin="15,121,0,0" VerticalAlignment="Top" Width="102" 
+						IsEnabled="True" Click="bRunAnalitics_Click" Content="Feldolgozás"/>
+			</Grid>
+			<Grid Grid.Column="1" Name="MainGrid">
+				<Frame Name="MainFrame" HorizontalAlignment="Center" VerticalAlignment="Center" NavigationUIVisibility="Hidden"/>
+			</Grid>
+		</Grid>
+		<StatusBar Grid.Row="1">
+			<StatusBarItem HorizontalAlignment="Stretch">
+				<TextBlock Name="lblUserStatus" HorizontalAlignment="Stretch"/>
+			</StatusBarItem>
+		</StatusBar>
+	</Grid>
+</Window>

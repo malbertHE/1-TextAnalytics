@@ -81,12 +81,12 @@ namespace MAF.TextAnalytics.Server
         }
 
         /// <summary>MD5 alapján visszaad egy eredményfájl elérési útját, ill, ha nincs ilyen md5, akkor üres stringet.</summary>
-        /// <param name="pResultMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
+        /// <param name="pResultFileMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
         /// <returns>A fájl elérési útja és neve vagy üres string.</returns>
-        public string GetResultFile(string pResultMD5)
+        public string GetResultFile(string pResultFileMD5)
         {
             string file;
-            lock (db) { file = db.GetResultDataFile(pResultMD5); }
+            lock (db) { file = db.GetResultDataFile(pResultFileMD5); }
             return file;
         }
 

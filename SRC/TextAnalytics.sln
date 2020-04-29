@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCF", "WCF", "{F41E2162-D54
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.TextAnalyticsServiceHost", "Product\WCF\MAF.TextAnalzticsServiceHost\MAF.TextAnalyticsServiceHost.csproj", "{C7389EAB-B6D1-4FA4-B41F-6F943385B6FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAF.TextAnalytics", "Product\WCF\MAF.TextAnalytics\MAF.TextAnalytics.csproj", "{C7F179CE-A91A-4DBC-B37C-ACC5635F297C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{C7389EAB-B6D1-4FA4-B41F-6F943385B6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7389EAB-B6D1-4FA4-B41F-6F943385B6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7389EAB-B6D1-4FA4-B41F-6F943385B6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F179CE-A91A-4DBC-B37C-ACC5635F297C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F179CE-A91A-4DBC-B37C-ACC5635F297C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F179CE-A91A-4DBC-B37C-ACC5635F297C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F179CE-A91A-4DBC-B37C-ACC5635F297C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{2038A8E1-F263-4FCD-8071-110FCABF45D3} = {92641381-F1A0-4399-AD7E-54238FF10B22}
 		{F41E2162-D540-4F8C-A5B5-134E9A01A147} = {D34FEA1F-302C-406A-9759-7A7EDC34BDCB}
 		{C7389EAB-B6D1-4FA4-B41F-6F943385B6FD} = {F41E2162-D540-4F8C-A5B5-134E9A01A147}
+		{C7F179CE-A91A-4DBC-B37C-ACC5635F297C} = {F41E2162-D540-4F8C-A5B5-134E9A01A147}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A4E069A-6CAE-42B7-8630-8433B5A5A06F}

@@ -6,24 +6,44 @@ namespace MAF.TextAnalzticsServiceHost
 {
     class Program
     {
-        static void Main(string[] args)
+        static ServiceHost host;
+        const string c_ExitText = "Kilépés enterrel";
+        const string c_StartHostText = "Host elindítva {0}";
+        const string c_ServerStartError = "A szerver indítása a következő hiba miatt nem lehetséges {0}";
+
+        static void Main()
         {
-            ServiceHost host = null;
+            StartHost();
+            WaitToEnd();
+            EndHost();
+        }
+
+        private static void StartHost()
+        {
             try
             {
                 host = new ServiceHost(typeof(TextAnalyticsService));
                 host.Open();
-                Console.WriteLine($"Host elindítva {DateTime.Now.ToString()}");
+                Console.WriteLine(c_StartHostText, DateTime.Now.ToString());
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"A szerver indítása a következő hiba miatt nem lehetséges: {ex.Message}");
+                Console.WriteLine(c_ServerStartError,  ex.Message);
                 host = null;
             }
-            Console.WriteLine("Kilépés enterrel");
+        }
+
+        private static void WaitToEnd()
+        {
+            Console.WriteLine(c_ExitText);
             Console.ReadLine();
+        }
+
+        private static void EndHost()
+        {
             if (host != null && host.State == CommunicationState.Opened)
                 host.Close();
         }
+
     }
 }

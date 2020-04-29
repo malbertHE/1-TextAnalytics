@@ -20,7 +20,7 @@ namespace MAF.WCFTextAnalyticsService
 		/// <summary>Felhasználói kijelentkezés.</summary>
 		/// <param name="pUserToken">Felhasználó azonosító token.</param>
 		[OperationContract]
-		void LoginOut(string pUserToken);
+		void LogOut(string pUserToken);
 
 		/// <summary>Felhasználói regisztráció.</summary>
 		[OperationContract]
@@ -39,26 +39,26 @@ namespace MAF.WCFTextAnalyticsService
 		#region Szöveg ellemzés szolgáltatásai.
 
 		/// <summary>Leellenőrzi, hogy ezt a fájlt korábban feldolgozták-e már.</summary>
-		/// <param name="pTextFileMD5">Fájl MD5 kódja.</param>
+		/// <param name="pSourceFileMD5">Fájl MD5 kódja.</param>
 		/// <returns>Ha már feldolgozták, akkor igazat ad vissza, különben hamisat.</returns>
 		[OperationContract]
-        bool FileExist(string pTextFileMD5);
+        bool SourceFileExist(string pSourceFileMD5);
 
         /// <summary>Megadott md5 alapján megkeressük, hogy volt-e már feldolgozva az a fájl. Ha igen, akkor visszaadjuk
         /// a feldolgozás eredményét, ha nem, akkor <see cref="TextAnalyticsServiceException"/> hibát dob.</summary>
-        /// <param name="pTextFileMD5">Eredeti feldolgozandó fájl md5-je.</param>
+        /// <param name="pResultFileMD5">Eredeti feldolgozandó fájl md5-je.</param>
         /// <returns>Feldolgozás eredménye.</returns>
         [OperationContract]
 		[FaultContract(typeof(FaultTextAnalytics))]
-		FileDownloadReturnMessage GetResultData(FileDownloadMessage pTextFileMD5);
+		FileDownloadReturnMessage GetResultFile(FileDownloadMessage pResultFileMD5);
 
 		/// <summary>Szöveges fájl feldolgozása.</summary>
-		/// <param name="pTXTFile">Feldolgozandó szöveges fájl.</param>
+		/// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
 		/// <param name="pUserToken">Feldolgozandó token azonosító.</param>
 		/// <returns>Feldolgozás eredménye.</returns>
 		[OperationContract]
 		[FaultContract(typeof(FaultTextAnalytics))]
-		FileDownloadReturnMessage RunCalculation(FileUploadMessage pTXTFile);
+		FileDownloadReturnMessage RunCalculation(FileUploadMessage pSourceFile);
 
 		#endregion
 	}
