@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -199,9 +199,6 @@ namespace MAF.Entropy.Console.Test
                     System.Console.SetOut(writer);
                     Program.Main(new string[] { c_SourceFile });
                 }
-                string s = string.Format(File.ReadAllText(@"SampleFiles\RunCalculationOut.txt"), c_SourceFile, Program.ResultFile);
-                string s1 = File.ReadAllText(c_ConsoleOutFile);
-
                 Assert.IsTrue(string.Format(File.ReadAllText(@"SampleFiles\RunCalculationOut.txt"), c_SourceFile, Program.ResultFile) ==
                     File.ReadAllText(c_ConsoleOutFile));
             }

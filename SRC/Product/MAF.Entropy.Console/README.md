@@ -6,7 +6,7 @@
 - Program verziószáma: 1.0.0.123
 - Program és forrás licenc: https://github.com/malbertHE/1-TextAnalytics-Console/blob/develop/LICENSE
 - Forrás: https://github.com/malbertHE/1-TextAnalytics-Console/tree/develop/SRC
-- Program: https://github.com/malbertHE/1-TextAnalytics-Console/releases/v1.0
+- Program: https://github.com/malbertHE/1-TextAnalytics-Console/releases/tag/1
 - Minimális követelmények: Windows operációs rendszer, .Net Framework 4.7.2., 
 - Telepítés: a program telepítést nem igényel.
 
@@ -20,7 +20,7 @@
 - pelda2.bat: Entropy.exe hívásának bemutatása.
 - Logic\ecl.xml: a jelek meghatározását leíró logikai fájl.
 
-:warning: FIGYELEM! A futtatható állományok MD5 ellenörző kódját a forráshelyen ellenőrizze: https://github.com/malbertHE/1-TextAnalytics-Console/releases/v1.0
+:warning: FIGYELEM! A futtatható állományok MD5 ellenörző kódját a forráshelyen ellenőrizze: [Release.md5](https://github.com/malbertHE/1-TextAnalytics-Console/releases/tag/1)
 
 :information_source: A program induláskor ellenőrzi a README.md fájl MD5 ellenőrző összegét. Csak sértetlen README.md fájl jelenlétében indul a program.
 

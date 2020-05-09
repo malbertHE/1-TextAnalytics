@@ -5,13 +5,13 @@ A program működését a konzolos alkalmazás [README.md](SRC/Product/MAF.Entro
 
 ## Forráskódok
 
-MAF.Entropy.dll: https://github.com/malbertHE/1-TextAnalytics-Console/tree/develop/SRC/Library/MAF.Entropy  
-Entropy.exe: https://github.com/malbertHE/1-TextAnalytics-Console/tree/develop/SRC/Product/MAF.Entropy.Console
+- [MAF.Entropy.dll](SRC/Library/MAF.Entropy)
+- [Entropy.exe](SRC/Product/MAF.Entropy.Console)
 
 ## Tesztek
 
-MAF.Entropy.dll teszt: https://github.com/malbertHE/1-TextAnalytics-Console/tree/develop/SRC/Library/MAF.Entropy.Test  
-Entropy.exe teszt: https://github.com/malbertHE/1-TextAnalytics-Console/tree/develop/SRC/Product/MAF.Entropy.Console.Test
+- [MAF.Entropy.dll teszt](SRC/Library/MAF.Entropy.Test)
+- [Entropy.exe teszt](SRC/Product/MAF.Entropy.Console.Test)
 
 ## Dokumentációk
 

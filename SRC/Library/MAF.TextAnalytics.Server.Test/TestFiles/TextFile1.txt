@@ -1,0 +1,1 @@
+﻿Ez egy teszt fájl. Pár mondat van csak benne. Az SQLite adatbázis teszteléséhez készült. Más szerepe nincs.

@@ -1,0 +1,29 @@
+﻿<Page x:Class="MAF.TextAnalytics.UserRegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MAF.TextAnalytics"
+      mc:Ignorable="d" 
+      d:DesignHeight="248" d:DesignWidth="560"
+      Title="Felhasználói regisztráció">
+
+    <Grid Margin="0,-19,0,0">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FF8DC179"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Label Content="Felhasználó login neve:" HorizontalAlignment="Left" Margin="18,50,0,0" VerticalAlignment="Top" Width="136"/>
+        <TextBox x:Name="tbLoginName" HorizontalAlignment="Left" Height="26" Margin="159,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.276,0.739"/>
+		<Label Content="Felhasználó neve:" HorizontalAlignment="Left" Margin="18,90,0,0" VerticalAlignment="Top" Width="136"/>
+		<TextBox x:Name="tbName" HorizontalAlignment="Left" Height="26" Margin="159,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" RenderTransformOrigin="0.276,0.739"/>
+		<Label Content="Felhasználó jelszava:" HorizontalAlignment="Left" Margin="18,125,0,0" VerticalAlignment="Top" Width="136"/>
+        <PasswordBox x:Name="pbPass" HorizontalAlignment="Left" Margin="159,125,0,0" VerticalAlignment="Top" Width="373" Height="26"/>
+		<Label Content="Felhasználó jelszava ismét:" HorizontalAlignment="Left" Margin="18,163,0,0" VerticalAlignment="Top" Width="136"/>
+		<PasswordBox x:Name="pbPass2" HorizontalAlignment="Left" Margin="159,163,0,0" VerticalAlignment="Top" Width="373" Height="26"/>
+		<Button Content="OK" HorizontalAlignment="Left" Margin="121,219,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Mégsem" HorizontalAlignment="Left" Margin="345,219,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+    </Grid>
+</Page>

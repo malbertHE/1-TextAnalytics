@@ -1,4 +1,4 @@
-﻿using MAF.Entropy.Collection;
+using MAF.Collection;
 using System;
 using System.IO;
 using System.Timers;
@@ -60,7 +60,7 @@ namespace MAF.Entropy.Console
         /// <summary>A súgó fájl MD5 összegének ellenőrzése. </summary>
         public static void CheckHelpFileIsCorrect()
         {
-            if (!File.Exists(C_HelpFile) || Cryptography.FileMD5Calculator(C_HelpFile) != "2f3feeea9b824c7796432bb1c99a7c19")
+            if (!File.Exists(C_HelpFile) || Cryptography.FileMD5Calculator(C_HelpFile) != "0b683905e901920e9592ca179b6e3d42")
             {
                 Environment.ExitCode = (int)ExitCode.HelpFileMD5Error;
                 throw new Exception(string.Format(C_HelpFileMD5Error, C_HelpFile));

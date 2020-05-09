@@ -1,4 +1,4 @@
-﻿using MAF.Entropy.Collection;
+using MAF.Collection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -79,7 +79,7 @@ namespace MAF.Entropy
         public Encoding TextEncoding { get; private set; } = Encoding.UTF8;
 
         /// <summary>Munka könyvtár. Ide kerülnek az entrópia számítások eredményei.</summary>
-        public string ResultDir { get; private set; } = C_DefaultResultDir;
+        public string ResultDir { get; set; } = C_DefaultResultDir;
 
         /// <summary>Entrópia feldolgozó osztály konstruktora, ami betölti a feldolgozás logikáját.</summary>
         public EntropyCalculator()

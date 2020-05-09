@@ -60,6 +60,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Library\MAF.Collection\MAF.Collection.csproj">
+      <Project>{3A33363D-F681-4391-A776-630CD4710706}</Project>
+      <Name>MAF.Collection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Library\MAF.Entropy\MAF.Entropy.csproj">
       <Project>{6973d659-e2db-49d6-909f-e5195cf30dc6}</Project>
       <Name>MAF.Entropy</Name>

@@ -1,0 +1,79 @@
+﻿<Window x:Class="MAF.Entropy.WPF.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAF.Entropy.WPF"
+        mc:Ignorable="d"
+		x:Name="wLogin"
+        Title="Szövegelemző - Bejelentkezés" Opacity="0.7" ResizeMode="NoResize" 
+		WindowStyle="None" WindowStartupLocation="CenterOwner" Height="246" Width="800">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF7300FD" Offset="0.004"/>
+            <GradientStop Color="#FF33F11F" Offset="1"/>
+            <GradientStop Color="#FFF31515" Offset="0.396"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Name="MainGrid" Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="759*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Name="buttonOK" DockPanel.Dock="Right" Content="OK" Margin="10,0,10,5" Background="Transparent" Click="Button_Click"/>
+        </DockPanel>
+        <Label Content="Szöveg ellemző" HorizontalAlignment="Left" Margin="67.234,74,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="149" Grid.Column="1"/>
+        <Label Content="Verzió 1.0" HorizontalAlignment="Left" Margin="67.234,130,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Névjegy" HorizontalAlignment="Left" Margin="22.234,23,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                    <GradientStop Color="#FF25E61C" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Készítette:  Megyesi Albert" HorizontalAlignment="Left" Margin="327.234,74,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="251" Grid.Column="1"/>
+        <Label Content="Email:  megyesi.albert@gmail.com" HorizontalAlignment="Left" Margin="327.234,130,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="272" Grid.Column="1"/>
+    </Grid>
+</Window>
