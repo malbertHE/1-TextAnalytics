@@ -93,3 +93,4 @@ Az egyes jelek adatai:
 
 - A pelda1.bat fájl a súgó kiíratás példáját tartalmazza.
 - A pelda2.bat fájl egy entrópiaszámítás példáját tartalmazza.
+ 
