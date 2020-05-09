@@ -1,4 +1,4 @@
-﻿using MAF.Collection;
+using MAF.Collection;
 using System;
 using System.IO;
 using System.Timers;
