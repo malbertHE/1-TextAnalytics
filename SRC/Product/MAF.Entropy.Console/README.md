@@ -4,8 +4,8 @@
 
 - Programfájl neve: Entropy.exe
 - Program verziószáma: 1.0.0.123
-- Program és forrás licenc: https://github.com/malbertHE/1-TextAnalytics-Console/blob/develop/LICENSE
-- Forrás: https://github.com/malbertHE/1-TextAnalytics-Console/tree/develop/SRC
+- Program és forrás licenc: [MIT License](/LICENSE)
+- Forrás: [SRC](/SRC)
 - Program: https://github.com/malbertHE/1-TextAnalytics-Console/releases/tag/1
 - Minimális követelmények: Windows operációs rendszer, .Net Framework 4.7.2., 
 - Telepítés: a program telepítést nem igényel.
