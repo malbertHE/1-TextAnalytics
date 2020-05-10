@@ -60,7 +60,7 @@ namespace MAF.Entropy.Console
         /// <summary>A súgó fájl MD5 összegének ellenőrzése. </summary>
         public static void CheckHelpFileIsCorrect()
         {
-            if (!File.Exists(C_HelpFile) || Cryptography.FileMD5Calculator(C_HelpFile) != "0b683905e901920e9592ca179b6e3d42")
+            if (!File.Exists(C_HelpFile) || Cryptography.FileMD5Calculator(C_HelpFile) != "88b823aefbfba9c0081dff529993045e")
             {
                 Environment.ExitCode = (int)ExitCode.HelpFileMD5Error;
                 throw new Exception(string.Format(C_HelpFileMD5Error, C_HelpFile));
