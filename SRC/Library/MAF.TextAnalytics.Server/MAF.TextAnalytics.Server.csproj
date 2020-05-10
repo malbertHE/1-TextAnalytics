@@ -47,13 +47,19 @@
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextAnalyticsFilesInfo.cs" />
-    <Compile Include="TextAnalyticsXML.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DB\MAF.DB.SQLite\MAF.DB.SQLite.csproj">
+    <ProjectReference Include="..\DB\MAF.TextAnalytics.DB.MySQL\MAF.TextAnalytics.DB.MySQL.csproj">
+      <Project>{9d06e961-9c01-4e4e-85db-4c4055c061fe}</Project>
+      <Name>MAF.TextAnalytics.DB.MySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DB\MAF.TextAnalytics.DB.SQLite\MAF.TextAnalytics.DB.SQLite.csproj">
       <Project>{c5070629-64c9-4c2b-9328-3328eccf0e64}</Project>
-      <Name>MAF.DB.SQLite</Name>
+      <Name>MAF.TextAnalytics.DB.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DB\MAF.TextAnalytics.DB\MAF.TextAnalytics.DB.csproj">
+      <Project>{c099e226-c628-4a53-a3f3-2a28e3f88e3a}</Project>
+      <Name>MAF.TextAnalytics.DB</Name>
     </ProjectReference>
     <ProjectReference Include="..\MAF.Collection\MAF.Collection.csproj">
       <Project>{3a33363d-f681-4391-a776-630cd4710706}</Project>

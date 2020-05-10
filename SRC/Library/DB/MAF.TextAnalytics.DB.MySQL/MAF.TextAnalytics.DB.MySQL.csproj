@@ -4,13 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3A33363D-F681-4391-A776-630CD4710706}</ProjectGuid>
+    <ProjectGuid>{9D06E961-9C01-4E4E-85DB-4C4055C061FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MAF.Collection</RootNamespace>
-    <AssemblyName>MAF.Collection</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>MAF.TextAnalytics.DB.MySQL</RootNamespace>
+    <AssemblyName>MAF.TextAnalytics.DB.MySQL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="mysql.data">
+      <HintPath>MySQL\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.entity">
+      <HintPath>MySQL\mysql.data.entity.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cryptography.cs" />
-    <Compile Include="StreamFunc.cs" />
-    <Compile Include="XMLObject.cs" />
+    <Compile Include="TextAnalyticsDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MAF.Collection\MAF.Collection.csproj">
+      <Project>{3a33363d-f681-4391-a776-630cd4710706}</Project>
+      <Name>MAF.Collection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MAF.TextAnalytics.DB\MAF.TextAnalytics.DB.csproj">
+      <Project>{c099e226-c628-4a53-a3f3-2a28e3f88e3a}</Project>
+      <Name>MAF.TextAnalytics.DB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

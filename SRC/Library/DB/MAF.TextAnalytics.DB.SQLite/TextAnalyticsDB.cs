@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Data.SQLite;
 using MAF.Collection;
-using MAF.TextAnalytics.Server;
 
-namespace MAF.DB.SQLite
+namespace MAF.TextAnalytics.DB.SQLite
 {
     /// <summary>SQLite adatbázis kiszolgáló.</summary>
-    public class TextAnalyticsDB : ITextAnalyticsDB
+    public class TextAnalyticsDB : DB.TextAnalyticsDB
     {
         public const string C_DBName = "TextAnalyticsService.sqlite";
         public const int C_BadUserID = -1;
@@ -19,10 +18,13 @@ namespace MAF.DB.SQLite
             CheckAndSetDB();
         }
 
+
+        #region Védett terület!
+
         /// <summary>Megmondja, hogy dolgozták-e már fel az adott fájlt.</summary>
         /// <param name="pSourceFileMD5">Az eredetileg feldolgozott fájl MD5-je.</param>
         /// <returns>Igaz, ha már dolgozták fel a fájlt.</returns>
-        public bool SourceFileExist(string pSourceFileMD5)
+        protected override bool Child_SourceFileExist(string pSourceFileMD5)
         {
             string sql = $"SELECT 1 FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pSourceFileMD5}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
@@ -30,12 +32,13 @@ namespace MAF.DB.SQLite
             return reader.HasRows;
         }
 
-        /// <summary>MD5 alapján visszaad egy eredményfájl elérési útját, ill, ha nincs ilyen md5, akkor üres stringet.</summary>
-        /// <param name="pResultFileMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
+        /// <summary>Forrásfájl MD5 ellenörző összege alapján visszaad egy eredményfájl elérési útját, ill, ha nincs ilyen md5, 
+        /// akkor üres stringet.</summary>
+        /// <param name="pSourceFileMD5">Keresett fájl, aminek az md5-je ezzel egyezik.</param>
         /// <returns>A fájl elérési útja és neve vagy üres string.</returns>
-        public string GetResultDataFile(string pResultFileMD5)
+        protected override string Child_GetResultDataFile(string pSourceFileMD5)
         {
-            string sql = $"SELECT {c_ResultFile} FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pResultFileMD5}'";
+            string sql = $"SELECT {c_ResultFile} FROM {c_TextAnalyticsTableName} WHERE {c_SourceFileMD5} = '{pSourceFileMD5}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = c.ExecuteReader();
             if (!reader.HasRows)
@@ -45,20 +48,20 @@ namespace MAF.DB.SQLite
         }
 
         /// <summary>Egy feldolgozott fájl információinak elmentése adatbázisba.</summary>
-        /// <param name="pSouceFile">Eredeti fájl.</param>
+        /// <param name="pSourceFile">Eredeti fájl.</param>
         /// <param name="pResultFile">Eredmény fájl.</param>
-        /// <param name="pUserLoginName">Felhasznál login neve.</param>
-        public void SaveCalculationInfo(string pSouceFile, string pResultFile, string pUserLoginName)
+        /// <param name="pLoginName">Felhasznál login neve.</param>
+        protected override void Child_SaveCalculationInfo(string pSourceFile, string pResultFile, string pLoginName)
         {
-            string userID = GetUserID(pUserLoginName);
-            SaveCalculation(pSouceFile, pResultFile, userID);
+            string userID = GetUserID(pLoginName);
+            SaveCalculation(pSourceFile, pResultFile, userID);
         }
 
         /// <summary>Felhasználó regisztrálása.</summary>
         /// <param name="pLoginName">Felhasználó login neve.</param>
         /// <param name="pUserName">Felhasználó teljes neve.</param>
         /// <param name="pPassword">Felhasználó jelszava.</param>
-        public void SignUp(string pLoginName, string pUserName, string pPassword)
+        protected override void Child_SignUp(string pLoginName, string pUserName, string pPassword)
         {
             string sql = $"insert into {c_UserTableName} ({c_UserLoginName}, {c_UserName}, {c_UserPassword}) values ('{pLoginName}', '{pUserName}', '{pPassword}')";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
@@ -66,10 +69,10 @@ namespace MAF.DB.SQLite
         }
 
         /// <summary>Felhasználó beléptetése.</summary>
-        /// <param name="pLoginName">Felhasználó login neve.</param>
-        /// <param name="pPassword">Felhasználó jelszava.</param>
-        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor visszaadja a felhasználó azonosítóját, különben .</returns>
-        public bool SignIn(string pLoginName, string pPassword)
+		/// <param name="pLoginName">Felhasználó login neve.</param>
+		/// <param name="pPassword">Felhasználó jelszava.</param>
+		/// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
+        protected override bool Child_SignIn(string pLoginName, string pPassword)
         {
             string sql = $"SELECT 1 FROM {c_UserTableName} WHERE {c_UserLoginName} = '{pLoginName}' AND {c_UserPassword} = '{pPassword}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
@@ -80,13 +83,18 @@ namespace MAF.DB.SQLite
         /// <summary>Felhasználó ellenőrzése, hogy létezik-e az adott jelszóval.</summary>
         /// <param name="pLoginName">Felhasználó login neve.</param>
         /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
-        public bool UserExist(string pLoginName)
+        protected override bool Child_UserExist(string pLoginName)
         {
             string sql = $"SELECT 1 FROM {c_UserTableName} WHERE {c_UserLoginName} = '{pLoginName}'";
             SQLiteCommand c = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = c.ExecuteReader();
             return reader.HasRows;
         }
+
+        #endregion
+
+
+        #region Privát tertület!
 
         const string c_UserTableName = "Users";
         const string c_UserID = "u_ID";
@@ -237,6 +245,7 @@ namespace MAF.DB.SQLite
             return reader[c_UserID].ToString();
         }
 
+        #endregion
     }
 
     [Serializable]

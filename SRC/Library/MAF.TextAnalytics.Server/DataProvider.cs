@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using MAF.Entropy;
+using MAF.TextAnalytics.DB;
 
 namespace MAF.TextAnalytics.Server
 {
@@ -131,10 +132,10 @@ namespace MAF.TextAnalytics.Server
                     db = new DB.SQLite.TextAnalyticsDB();
                     break;
                 case DataBaseType.MySQL:
-                    //db = new TextAnalyticsMySQL.TextAnalyticsDB();
+                    db = new DB.MySQL.TextAnalyticsDB();
                     break;
                 default:
-                    db = new TextAnalyticsFilesInfo();
+                    db = new DB.XML.TextAnalyticsFilesInfo();
                     break;
             }
         }
