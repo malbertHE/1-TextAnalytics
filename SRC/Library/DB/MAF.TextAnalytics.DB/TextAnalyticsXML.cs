@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MAF.TextAnalytics.Server
+namespace MAF.TextAnalytics.DB.XML
 {
     public class TextAnalyticsXML
     {
@@ -17,9 +17,9 @@ namespace MAF.TextAnalytics.Server
 
 	public class XMLItem
     {
-		public string UserID;
-        public string File;
-        public string FileMD5;
+		public string LoginName;
+        public string SourceFile;
+        public string SourceFileMD5;
         public string ResultFile;
         public string ResultMD5;
     }

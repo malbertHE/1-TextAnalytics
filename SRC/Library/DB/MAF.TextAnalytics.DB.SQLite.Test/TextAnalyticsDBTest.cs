@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using MAF.TextAnalytics.DB.SQLite;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 
@@ -46,8 +47,9 @@ namespace MAF.DB.SQLite.Test
             }
             catch(Exception ex)
             {
-                Assert.IsTrue(ex is InvalidOperationException);
-                Assert.IsTrue(ex.Message == "No current row");
+                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_SaveCalculationInfoError, c_NotExistFile, c_NotExistFile, c_NotExistUserLoginName));
+                Assert.IsTrue(ex.InnerException is InvalidOperationException);
+                Assert.IsTrue(ex.InnerException.Message == "No current row");
             }
         }
 
@@ -59,13 +61,10 @@ namespace MAF.DB.SQLite.Test
                 db.SaveCalculationInfo(c_TextFile1, c_NotExistFile, c_TestUserLoginName);
                 Assert.Fail();
             }
-            catch (FileNotFoundException ex)
+            catch (Exception ex)
             {
-                Assert.IsTrue(ex.FileName == Path.Combine(Environment.CurrentDirectory, c_NotExistFile));
-            }
-            catch
-            {
-                Assert.Fail();
+                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_SaveCalculationInfoError, c_TextFile1, c_NotExistFile, c_TestUserLoginName));
+                Assert.IsTrue(ex.InnerException.GetType() == typeof(FileNotFoundException));
             }
         }
 
@@ -79,8 +78,9 @@ namespace MAF.DB.SQLite.Test
             }
             catch (Exception ex)
             {
-                Assert.IsTrue(ex is InvalidOperationException);
-                Assert.IsTrue(ex.Message == "No current row");
+                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_SaveCalculationInfoError, c_TextFile1, c_NotExistFile, c_NotExistUserLoginName));
+                Assert.IsTrue(ex.InnerException is InvalidOperationException);
+                Assert.IsTrue(ex.InnerException.Message == "No current row");
             }
         }
 
@@ -92,13 +92,10 @@ namespace MAF.DB.SQLite.Test
                 db.SaveCalculationInfo(c_TextFile1, c_NotExistFile, c_TestUserLoginName);
                 Assert.Fail();
             }
-            catch (FileNotFoundException ex)
+            catch(Exception ex)
             {
-                Assert.IsTrue(ex.FileName == Path.Combine(Environment.CurrentDirectory, c_NotExistFile));
-            }
-            catch
-            {
-                Assert.Fail();
+                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_SaveCalculationInfoError, c_TextFile1, c_NotExistFile, c_TestUserLoginName));
+                Assert.IsTrue(ex.InnerException.GetType() == typeof(FileNotFoundException));
             }
         }
 
@@ -112,8 +109,9 @@ namespace MAF.DB.SQLite.Test
             }
             catch (Exception ex)
             {
-                Assert.IsTrue(ex is InvalidOperationException);
-                Assert.IsTrue(ex.Message == "No current row");
+                Assert.IsTrue(ex.Message == string.Format(TextAnalyticsDB.C_SaveCalculationInfoError, c_TextFile1, c_ResultTile1, c_NotExistUserLoginName));
+                Assert.IsTrue(ex.InnerException is InvalidOperationException);
+                Assert.IsTrue(ex.InnerException.Message == "No current row");
             }
         }
 

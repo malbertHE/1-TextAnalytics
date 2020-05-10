@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MAF.TextAnalytics.DB.SQLite</RootNamespace>
     <AssemblyName>MAF.TextAnalytics.DB.SQLite</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -72,6 +72,10 @@
     <ProjectReference Include="..\..\MAF.Collection\MAF.Collection.csproj">
       <Project>{3a33363d-f681-4391-a776-630cd4710706}</Project>
       <Name>MAF.Collection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MAF.TextAnalytics.DB\MAF.TextAnalytics.DB.csproj">
+      <Project>{c099e226-c628-4a53-a3f3-2a28e3f88e3a}</Project>
+      <Name>MAF.TextAnalytics.DB</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

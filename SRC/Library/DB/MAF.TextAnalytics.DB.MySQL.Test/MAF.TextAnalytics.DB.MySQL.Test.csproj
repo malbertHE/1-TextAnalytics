@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2D64946-B65F-4AA8-A8CB-A5F14946C7E0}</ProjectGuid>
+    <ProjectGuid>{74A5334B-8A53-4565-B23D-318C66EA79C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MAF.TextAnalytics.DB.SQLite.Test</RootNamespace>
-    <AssemblyName>MAF.TextAnalytics.DB.SQLite.Test</AssemblyName>
+    <RootNamespace>MAF.TextAnalytics.DB.MySQL.Test</RootNamespace>
+    <AssemblyName>MAF.TextAnalytics.DB.MySQL.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -38,9 +38,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -59,18 +56,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MAF.DB.SQLite\MAF.DB.SQLite.csproj">
-      <Project>{c5070629-64c9-4c2b-9328-3328eccf0e64}</Project>
-      <Name>MAF.DB.SQLite</Name>
+    <ProjectReference Include="..\MAF.TextAnalytics.DB.MySQL\MAF.TextAnalytics.DB.MySQL.csproj">
+      <Project>{9d06e961-9c01-4e4e-85db-4c4055c061fe}</Project>
+      <Name>MAF.TextAnalytics.DB.MySQL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TestFiles\TextFile1.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestFiles\TextFile1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <ProjectReference Include="..\MAF.TextAnalytics.DB\MAF.TextAnalytics.DB.csproj">
+      <Project>{c099e226-c628-4a53-a3f3-2a28e3f88e3a}</Project>
+      <Name>MAF.TextAnalytics.DB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -82,9 +75,4 @@
     <Error Condition="!Exists('..\..\..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets'))" />
   </Target>
   <Import Project="..\..\..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\..\..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)\Library\DB\MAF.DB.SQLite\bin\$(ConfigurationName)\x64\SQLite.Interop.dll" "$(SolutionDir)\Library\DB\MAF.DB.SQLite.Test\bin\$(ConfigurationName)\x64\*.*" /C /F /S /E /Y
-xcopy "$(SolutionDir)\Library\DB\MAF.DB.SQLite\bin\$(ConfigurationName)\x86\SQLite.Interop.dll" "$(SolutionDir)\Library\DB\MAF.DB.SQLite.Test\bin\$(ConfigurationName)\x86\*.*" /C /F /S /E /Y
-</PostBuildEvent>
-  </PropertyGroup>
 </Project>
