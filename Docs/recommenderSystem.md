@@ -11,8 +11,8 @@ Rendszer javaslat diagram:
 
 
 A rendszer komponensei:
-- Entropy.exe: futtatható állomány. A felület valósítja meg.
-- MAF.Entropy.dll: Üzleti logikát megvalósító könyvtár.
+- [Entropy.exe](../SRC/Product/MAF.Entropy.Console): futtatható állomány. A felület valósítja meg.
+- [MAF.Entropy.dll](../SRC/Library/MAF.Entropy): Üzleti logikát megvalósító könyvtár.
 
 ![rendszer komponens javaslat](rs1.png)
 
