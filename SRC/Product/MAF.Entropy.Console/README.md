@@ -76,7 +76,7 @@ Az egyes jelek adatai:
 
 ## Program használata
 
-- Mivel a README.md biztonsági szempontból is fontos információt tartalmaz (eredeti forrás helye, binárisok MD5 ellenörző összegei), ezért csak akkor indul a program, ha ez a fájl sértetlen. Ha másod kézből kapta a binárisokat, kérem ellenőrizze az MD5 összeget a forrás oldalon. Amennyiben ezek nem azonosak, ne használja a programot, töltse le a forrás oldalról.
+- Mivel a README.md biztonsági szempontból is fontos információt tartalmaz (eredeti forrás helye), ezért csak akkor indul a program, ha ez a fájl sértetlen. Ha másod kézből kapta a binárisokat, kérem ellenőrizze az MD5 összeget a forrás oldalon. Amennyiben ezek nem azonosak, ne használja a programot, töltse le a forrás oldalról.
 - A programot paraméterek nélkül indítva kiírja a README.md fájl tartalmát, ami jelen szöveget tartalmazza, vagyis a program leírását.
 - Feldolgozáshoz a programot 1 paraméterrel kell indítani, ahol a paraméter a feldolgozandó adatfájlt, eléréssel együtt kell tartalmazza. Az elérés lehet relatív és abszolút elérés. Az adatfájl UTF8 szöveget kell tartalmazzon. Pl.: entropy.exe adatFájl.txt
 
