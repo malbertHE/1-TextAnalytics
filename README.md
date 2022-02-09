@@ -17,3 +17,5 @@ A program működését a konzolos alkalmazás [README.md](SRC/Product/MAF.Entro
 
 A [systemSpecs.md](Docs/systemSpecs.md) dokumentum tartalmazza a dokumentációk felsorolását.  
 A [README.md](SRC/Product/MAF.Entropy.Console/README.md) tartalmazza a program felhasználói dokumentációját.
+
+:information_source: Jelen program egy dolgozat részeként készült.
