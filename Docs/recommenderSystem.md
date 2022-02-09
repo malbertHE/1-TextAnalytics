@@ -5,7 +5,7 @@
 - Bemenő paraméterben megadva az adatfolyam.
 - A feldolgozás paraméterei egy xml paraméter fájlban vannak. Ez vezérli a feldolgozást.
 
-Rendszer javaslat diagramm:
+Rendszer javaslat diagram:
 
 ![rendszer javaslat](useCase1.png)
 
