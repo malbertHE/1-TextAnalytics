@@ -1,5 +1,5 @@
 # Projekt tervek
-A fejlesztést minden része C# nyelven lesz megvalósítva.  
+A fejlesztés minden része C# nyelven lesz megvalósítva.  
 A felületet egy konzolos alkalmazás, az üzleti logikát egy dinamikus csatolású könyvtár valósítja meg.  
 A feldolgozás paraméterezése egy XML fájlba van. Ennek felépítése a "Vezérlő XML fájl" fejezetnél található. Reguláris kifejezéseket tartalmaz, amik megmondják, hogy mit tekintünk jelnek. Az így meghatározott jelekből lesz kiszámolva az entrópia.  
 Az eredményt szintén XML fájlba teszi. Ennek felépítése az "Eredmény XML fájl" fejezetnél található.  
