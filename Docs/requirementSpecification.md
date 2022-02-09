@@ -40,4 +40,4 @@ További követelmények:
 - Törekedni kell az OOP szabályainak betartására valamint az általános alapelvek, mint a GOF és SOLID elvek betartására.
 
 ## Irodalomjegyzék
-[^1] Dr. Kovács Emőd, Bíró Csaba, Dr. Perge Imre: Bevezetés az informatikába, Eger, 2013, Eszterházy Károly Főiskola-Matematikai és Informatikai Intézet
+[^1]: Dr. Kovács Emőd, Bíró Csaba, Dr. Perge Imre: Bevezetés az informatikába, Eger, 2013, Eszterházy Károly Főiskola-Matematikai és Informatikai Intézet
