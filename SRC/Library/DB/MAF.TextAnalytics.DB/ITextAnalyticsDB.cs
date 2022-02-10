@@ -1,4 +1,4 @@
-﻿namespace MAF.TextAnalytics.DB
+namespace MAF.TextAnalytics.DB
 {
     /// <summary>Adatbázis interfész. Mindegyik típusú adatbázis kiszolgáló ezt az interfészt kell megvalósítsa, hogy a 
     /// <see cref="MAF.TextAnalytics.Server"/> ki tudja szolgálni.</summary>
