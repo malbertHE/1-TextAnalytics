@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.ServiceModel;
 
 namespace MAF.WCFTextAnalyticsService
@@ -8,40 +8,40 @@ namespace MAF.WCFTextAnalyticsService
     [ServiceContract]
     public interface ITextAnalyticsService
     {
-		#region Felhasználóhoz kötött szolgáltatások.
+        #region Felhasználóhoz kötött szolgáltatások.
 
-		/// <summary>Bejelentkezés szoltáltatása.</summary>
-		/// <param name="pLoginName">Felhasználó neve.</param>
-		/// <param name="pPassword">Felhasználó jelszava.</param>
-		/// <returns>Felhasználó azonosító.</returns>
-		[OperationContract]
-		string SignIn(string pLoginName, string pPassword);
+        /// <summary>Bejelentkezés szoltáltatása.</summary>
+        /// <param name="pLoginName">Felhasználó neve.</param>
+        /// <param name="pPassword">Felhasználó jelszava.</param>
+        /// <returns>Felhasználó azonosító.</returns>
+        [OperationContract]
+        string SignIn(string pLoginName, string pPassword);
 
-		/// <summary>Felhasználói kijelentkezés.</summary>
-		/// <param name="pUserToken">Felhasználó azonosító token.</param>
-		[OperationContract]
-		void LogOut(string pUserToken);
+        /// <summary>Felhasználói kijelentkezés.</summary>
+        /// <param name="pUserToken">Felhasználó azonosító token.</param>
+        [OperationContract]
+        void LogOut(string pUserToken);
 
-		/// <summary>Felhasználói regisztráció.</summary>
-		[OperationContract]
+        /// <summary>Felhasználói regisztráció.</summary>
+        [OperationContract]
         [FaultContract(typeof(FaultTextAnalytics))]
         void SignUp(string pLoginName, string pUserName, string pPassword);
 
-		/// <summary>Felhasználó státusz lekérdezés. Igazat ad vissza, ha a felhasználó be van jelentkezve.</summary>
-		/// <param name="pToken">Felhasználó token azonosítója.</param>
-		/// <returns>Felhasználó státusza.</returns>
-		[OperationContract]
-		bool GetStatus(string pToken);
+        /// <summary>Felhasználó státusz lekérdezés. Igazat ad vissza, ha a felhasználó be van jelentkezve.</summary>
+        /// <param name="pToken">Felhasználó token azonosítója.</param>
+        /// <returns>Felhasználó státusza.</returns>
+        [OperationContract]
+        bool GetStatus(string pToken);
 
-		#endregion
+        #endregion
 
 
-		#region Szöveg ellemzés szolgáltatásai.
+        #region Szöveg ellemzés szolgáltatásai.
 
-		/// <summary>Leellenőrzi, hogy ezt a fájlt korábban feldolgozták-e már.</summary>
-		/// <param name="pSourceFileMD5">Fájl MD5 kódja.</param>
-		/// <returns>Ha már feldolgozták, akkor igazat ad vissza, különben hamisat.</returns>
-		[OperationContract]
+        /// <summary>Leellenőrzi, hogy ezt a fájlt korábban feldolgozták-e már.</summary>
+        /// <param name="pSourceFileMD5">Fájl MD5 kódja.</param>
+        /// <returns>Ha már feldolgozták, akkor igazat ad vissza, különben hamisat.</returns>
+        [OperationContract]
         bool SourceFileExist(string pSourceFileMD5);
 
         /// <summary>Megadott md5 alapján megkeressük, hogy volt-e már feldolgozva az a fájl. Ha igen, akkor visszaadjuk
@@ -49,21 +49,21 @@ namespace MAF.WCFTextAnalyticsService
         /// <param name="pResultFileMD5">Eredeti feldolgozandó fájl md5-je.</param>
         /// <returns>Feldolgozás eredménye.</returns>
         [OperationContract]
-		[FaultContract(typeof(FaultTextAnalytics))]
-		FileDownloadReturnMessage GetResultFile(FileDownloadMessage pResultFileMD5);
+        [FaultContract(typeof(FaultTextAnalytics))]
+        FileDownloadReturnMessage GetResultFile(FileDownloadMessage pResultFileMD5);
 
-		/// <summary>Szöveges fájl feldolgozása.</summary>
-		/// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
-		/// <param name="pUserToken">Feldolgozandó token azonosító.</param>
-		/// <returns>Feldolgozás eredménye.</returns>
-		[OperationContract]
-		[FaultContract(typeof(FaultTextAnalytics))]
-		FileDownloadReturnMessage RunCalculation(FileUploadMessage pSourceFile);
+        /// <summary>Szöveges fájl feldolgozása.</summary>
+        /// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
+        /// <param name="pUserToken">Feldolgozandó token azonosító.</param>
+        /// <returns>Feldolgozás eredménye.</returns>
+        [OperationContract]
+        [FaultContract(typeof(FaultTextAnalytics))]
+        FileDownloadReturnMessage RunCalculation(FileUploadMessage pSourceFile);
 
-		#endregion
-	}
+        #endregion
+    }
 
-	[MessageContract]
+    [MessageContract]
     public class FaultTextAnalytics
     {
         [MessageHeader(MustUnderstand = true)]
@@ -89,10 +89,10 @@ namespace MAF.WCFTextAnalyticsService
     [MessageContract]
     public class FileUploadMessage
     {
-		[MessageHeader(MustUnderstand = true)]
-		public string UserToken;
+        [MessageHeader(MustUnderstand = true)]
+        public string UserToken;
 
-		[MessageHeader(MustUnderstand = true)]
+        [MessageHeader(MustUnderstand = true)]
         public string Filename;
 
         [MessageBodyMember(Order = 1)]
