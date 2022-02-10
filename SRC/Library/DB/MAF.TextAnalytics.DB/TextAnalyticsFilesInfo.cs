@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using MAF.Collection;
 
 namespace MAF.TextAnalytics.DB.XML
@@ -42,44 +42,44 @@ namespace MAF.TextAnalytics.DB.XML
         /// <param name="pLoginName">Felhasznál login neve.</param>
         protected override void Child_SaveCalculationInfo(string pSourceFile, string pResultFile, string pLoginName)
         {
-			XMLItem item = new XMLItem()
+            XMLItem item = new XMLItem()
             {
-				LoginName = pLoginName,
-				SourceFile = pSourceFile,
+                LoginName = pLoginName,
+                SourceFile = pSourceFile,
                 ResultFile = pResultFile,
                 SourceFileMD5 = Cryptography.FileMD5Calculator(pSourceFile),
                 ResultMD5 = Cryptography.FileMD5Calculator(pResultFile)
             };
-			XMLItem xmlI = ta.ItemList.Find(x => x.SourceFileMD5 == item.SourceFileMD5);
-			if (xmlI != null)
-			{
-				xmlI.LoginName = item.LoginName;
-				xmlI.SourceFile = item.SourceFile;
-				xmlI.ResultFile = item.ResultFile;
-				xmlI.ResultMD5 = item.ResultMD5;
-			}
-			else
-				ta.ItemList.Add(item);
-		}
+            XMLItem xmlI = ta.ItemList.Find(x => x.SourceFileMD5 == item.SourceFileMD5);
+            if (xmlI != null)
+            {
+                xmlI.LoginName = item.LoginName;
+                xmlI.SourceFile = item.SourceFile;
+                xmlI.ResultFile = item.ResultFile;
+                xmlI.ResultMD5 = item.ResultMD5;
+            }
+            else
+                ta.ItemList.Add(item);
+        }
 
         /// <summary>Felhasználó regisztrálása.</summary>
         /// <param name="pLoginName">Felhasználó login neve.</param>
         /// <param name="pUserName">Felhasználó teljes neve.</param>
         /// <param name="pPassword">Felhasználó jelszava.</param>
         protected override void Child_SignUp(string pLoginName, string pUserName, string pPassword)
-		{
-			UserItem ui = new UserItem() { LoginName = pLoginName, Name = pUserName, Password = pPassword };
-			ta.UserList.Add(ui);
-		}
+        {
+            UserItem ui = new UserItem() { LoginName = pLoginName, Name = pUserName, Password = pPassword };
+            ta.UserList.Add(ui);
+        }
 
         /// <summary>Felhasználó beléptetése.</summary>
-		/// <param name="pLoginName">Felhasználó login neve.</param>
-		/// <param name="pPassword">Felhasználó jelszava.</param>
-		/// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
-		protected override bool Child_SignIn(string pLoginName, string pPassword)
-		{
-			return ta.UserList.Exists(x => x.LoginName == pLoginName && x.Password == pPassword);
-		}
+        /// <param name="pLoginName">Felhasználó login neve.</param>
+        /// <param name="pPassword">Felhasználó jelszava.</param>
+        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
+        protected override bool Child_SignIn(string pLoginName, string pPassword)
+        {
+            return ta.UserList.Exists(x => x.LoginName == pLoginName && x.Password == pPassword);
+        }
 
         /// <summary>Felhasználó ellenőrzése, hogy létezik-e az adott jelszóval.</summary>
         /// <param name="pLoginName">Felhasználó login neve.</param>
@@ -97,10 +97,10 @@ namespace MAF.TextAnalytics.DB.XML
         const string c_dbFile = "dbAnalytics.xml";
         readonly TextAnalyticsXML ta;
 
-		~TextAnalyticsFilesInfo()
-		{
-			XMLObject.ObjectToXML(c_dbFile, ta);
-		}
+        ~TextAnalyticsFilesInfo()
+        {
+            XMLObject.ObjectToXML(c_dbFile, ta);
+        }
 
         #endregion
     }
