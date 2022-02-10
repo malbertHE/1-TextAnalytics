@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
@@ -11,21 +11,21 @@ namespace MAF.TextAnalytics.Server
     /// Ha ezen keresztül megy a feldolgozás, akkor nyilvántartja, hogy milyen fájlok lettek már feldolgozva.</summary>
     public class DataProvider
     {
-		/// <summary>Adatbázís típusok.</summary>
+        /// <summary>Adatbázís típusok.</summary>
         public enum DataBaseType
-		{
-			/// <summary>XML fál. Alapértelmezett. Csak teszteléshez ajánlott.</summary>
-			NA,
+        {
+            /// <summary>XML fál. Alapértelmezett. Csak teszteléshez ajánlott.</summary>
+            NA,
 
-			/// <summary>Egyszerű, telepítést nem igénylő SQL alapú adatbázis, arra az esetre, ha nincs elérhető SQL szerver.</summary>
-			SQLite,
+            /// <summary>Egyszerű, telepítést nem igénylő SQL alapú adatbázis, arra az esetre, ha nincs elérhető SQL szerver.</summary>
+            SQLite,
 
-			/// <summary>MySQL szerver elérés esetére.</summary>
-			MySQL,
+            /// <summary>MySQL szerver elérés esetére.</summary>
+            MySQL,
 
-			/// <summary>Oracle szerver elérés esetére.</summary>
-			Oracle
-		}
+            /// <summary>Oracle szerver elérés esetére.</summary>
+            Oracle
+        }
 
         public const string C_UserExistError = "Már létezik ilyen felhasználó!";
         public const string C_UserNotExistError = "A következő felhasználó nem létezik: {0}!";
@@ -37,7 +37,7 @@ namespace MAF.TextAnalytics.Server
         {
             resultPath = pResultPath;
             var appConfig = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
-			string sDBType = appConfig.AppSettings.Settings["DBType"].Value;
+            string sDBType = appConfig.AppSettings.Settings["DBType"].Value;
             DataBaseType dbt = Enum.TryParse(sDBType, out DataBaseType dbType) ? dbType : DataBaseType.NA;
             SetDB(dbt);
         }
@@ -54,27 +54,27 @@ namespace MAF.TextAnalytics.Server
         /// <param name="pUserName">Felhasználó teljes neve.</param>
         /// <param name="pPassword">Felhasználó jelszava.</param>
         public void SignUp(string pLoginName, string pUserName, string pPassword)
-		{
+        {
             if (db.UserExist(pLoginName))
                 throw new DataProviderException(C_UserExistError);
             lock (db) { db.SignUp(pLoginName, pUserName, pPassword); }
-		}
+        }
 
         /// <summary>Felhasználó bejelentkezése.</summary>
         /// <param name="pLoginName">Felhasználó login neve.</param>
         /// <param name="pPassword">Felhasználó jelszava.</param>
         /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
         public bool SignIn(string pLoginName, string pPassword)
-		{
-			bool exist;
-			lock (db) { exist = db.SignIn(pLoginName, pPassword); }
-			return exist;
-		}
+        {
+            bool exist;
+            lock (db) { exist = db.SignIn(pLoginName, pPassword); }
+            return exist;
+        }
 
-		/// <summary>Megmondja, hogy dolgozták-e már fel az adott fájlt.</summary>
-		/// <param name="pSourceFileMD5">Az eredetileg feldolgozott fájl MD5-je.</param>
-		/// <returns>Igaz, ha már dolgozták fel a fájlt.</returns>
-		public bool SourceFileExist(string pSourceFileMD5)
+        /// <summary>Megmondja, hogy dolgozták-e már fel az adott fájlt.</summary>
+        /// <param name="pSourceFileMD5">Az eredetileg feldolgozott fájl MD5-je.</param>
+        /// <returns>Igaz, ha már dolgozták fel a fájlt.</returns>
+        public bool SourceFileExist(string pSourceFileMD5)
         {
             bool b;
             lock (db) { b = db.SourceFileExist(pSourceFileMD5); }
@@ -91,11 +91,11 @@ namespace MAF.TextAnalytics.Server
             return file;
         }
 
-		/// <summary>Szöveges fájl feldolgozása.</summary>
-		/// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
-		/// <param name="pUserLoginName">Felhasznál azonsoító.</param>
-		/// <returns>Eredmény fájl.</returns>
-		public string RunCalculation(string pSourceFile, string pUserLoginName)
+        /// <summary>Szöveges fájl feldolgozása.</summary>
+        /// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
+        /// <param name="pUserLoginName">Felhasznál azonsoító.</param>
+        /// <returns>Eredmény fájl.</returns>
+        public string RunCalculation(string pSourceFile, string pUserLoginName)
         {
             CheckConditions(pSourceFile, pUserLoginName);
             string resultFile = RunCalculation(pSourceFile);

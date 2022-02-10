@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -36,19 +36,17 @@ namespace MAF.Collection
             }
         }
 
-        /// <summary> Objektum elmentése XML fájlba.
-        /// </summary>
+        /// <summary> Objektum elmentése XML fájlba. Megnézi, hogy létezik-e a könyvtár,
+        /// ha nem létezik, létrehozza.</summary>
         /// <param name="pXMLFile">XML fájl.</param>
         /// <param name="pObject">Objektum amit ki kell menteni XML fájlba.</param>
         /// <returns>Az új objektum.</returns>
         public static void ObjectToXML(string pXMLFile, object pObject)
         {
-            //Könyvtár ellenőzrése, hogy létezik-e. Ha nem létezik, létrehozzuk.
             string dir = Path.GetDirectoryName(pXMLFile);
             if (dir != string.Empty && !Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 
-            //XML fájl elmentése.
             XmlSerializer writer = new XmlSerializer(pObject.GetType());
 
             StreamWriter file = new StreamWriter(pXMLFile);
@@ -58,4 +56,3 @@ namespace MAF.Collection
         }
     }
 }
-

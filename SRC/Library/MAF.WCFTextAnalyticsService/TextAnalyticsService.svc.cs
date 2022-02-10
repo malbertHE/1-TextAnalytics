@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.ServiceModel;
@@ -18,22 +18,22 @@ namespace MAF.WCFTextAnalyticsService
                 Directory.CreateDirectory(c_TextFilePath);
         }
 
-		#region Felhasználóhoz kötött szolgáltatások.
+        #region Felhasználóhoz kötött szolgáltatások.
 
-		/// <summary>Felhasználó státusz lekérdezés. Igazat ad vissza, ha a felhasználó be van jelentkezve.</summary>
-		/// <param name="pToken">Felhasználó token azonosítója.</param>
-		/// <returns>Felhasználó státusza.</returns>
-		public bool GetStatus(string pToken)
-		{
-			return allLoginedUsers.Exists(x => x.Token == pToken);
-		}
+        /// <summary>Felhasználó státusz lekérdezés. Igazat ad vissza, ha a felhasználó be van jelentkezve.</summary>
+        /// <param name="pToken">Felhasználó token azonosítója.</param>
+        /// <returns>Felhasználó státusza.</returns>
+        public bool GetStatus(string pToken)
+        {
+            return allLoginedUsers.Exists(x => x.Token == pToken);
+        }
 
-		/// <summary>Új felhasználó beregisztrálása.</summary>
-		/// <param name="pLoginName">Felhasználó login neve.</param>
-		/// <param name="pUserName">Felhasználó teljes neve.</param>
-		/// <param name="pPassword">Felhasználó jelszava.</param>
-		public void SignUp(string pLoginName, string pUserName, string pPassword)
-		{
+        /// <summary>Új felhasználó beregisztrálása.</summary>
+        /// <param name="pLoginName">Felhasználó login neve.</param>
+        /// <param name="pUserName">Felhasználó teljes neve.</param>
+        /// <param name="pPassword">Felhasználó jelszava.</param>
+        public void SignUp(string pLoginName, string pUserName, string pPassword)
+        {
             try
             {
                 if (pLoginName == string.Empty)
@@ -54,45 +54,45 @@ namespace MAF.WCFTextAnalyticsService
         /// <param name="pPassword">Felhasználó jelszava.</param>
         /// <returns>Token a felhasználó azonosítására a későbbiekben.</returns>
         public string SignIn(string pLoginName, string pPassword)
-		{
-			try
-			{
-				string p = Cryptography.CalculateSHA512Hash(pPassword);
+        {
+            try
+            {
+                string p = Cryptography.CalculateSHA512Hash(pPassword);
 
-				if (!r.SignIn(pLoginName, p))
-					return string.Empty;
+                if (!r.SignIn(pLoginName, p))
+                    return string.Empty;
 
-				string token = Guid.NewGuid().ToString();
-				UserLoginedInfo uli = new UserLoginedInfo(pLoginName, token);
-				allLoginedUsers.Add(uli);
-				return token;
-			}
-			catch
-			{
-				return string.Empty;
-			}
-		}
+                string token = Guid.NewGuid().ToString();
+                UserLoginedInfo uli = new UserLoginedInfo(pLoginName, token);
+                allLoginedUsers.Add(uli);
+                return token;
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
 
-		/// <summary>Felhasználói kijelentkezés.</summary>
-		/// <param name="pUserToken">Felhasználó azonosító token.</param>
-		public void LogOut(string pUserToken)
-		{
-			UserLoginedInfo uli = allLoginedUsers.Find(x => x.Token == pUserToken);
-			if (uli == null)
-				return;
+        /// <summary>Felhasználói kijelentkezés.</summary>
+        /// <param name="pUserToken">Felhasználó azonosító token.</param>
+        public void LogOut(string pUserToken)
+        {
+            UserLoginedInfo uli = allLoginedUsers.Find(x => x.Token == pUserToken);
+            if (uli == null)
+                return;
 
-			allLoginedUsers.Remove(uli);
-		}
+            allLoginedUsers.Remove(uli);
+        }
 
-		#endregion
+        #endregion
 
 
-		#region Szöveg ellemzés szolgáltatásai.
+        #region Szöveg ellemzés szolgáltatásai.
 
-		/// <summary>Leellenőrzi, hogy ezt a fájlt korábban feldolgozták-e már.</summary>
-		/// <param name="pSourceFileMD5">Fájl MD5 kódja.</param>
-		/// <returns>Ha már feldolgozták, akkor igazat ad vissza, különben hamisat.</returns>
-		public bool SourceFileExist(string pSourceFileMD5)
+        /// <summary>Leellenőrzi, hogy ezt a fájlt korábban feldolgozták-e már.</summary>
+        /// <param name="pSourceFileMD5">Fájl MD5 kódja.</param>
+        /// <returns>Ha már feldolgozták, akkor igazat ad vissza, különben hamisat.</returns>
+        public bool SourceFileExist(string pSourceFileMD5)
         {
             return r.SourceFileExist(pSourceFileMD5);
         }
@@ -117,25 +117,25 @@ namespace MAF.WCFTextAnalyticsService
             }
         }
 
-		/// <summary>Szöveges fájl feldolgozása.</summary>
-		/// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
-		/// <param name="pUserToken">Feldolgozandó token azonosító.</param>
-		/// <returns>Feldolgozás eredménye.</returns>
-		public FileDownloadReturnMessage RunCalculation(FileUploadMessage pSourceFile)
+        /// <summary>Szöveges fájl feldolgozása.</summary>
+        /// <param name="pSourceFile">Feldolgozandó szöveges fájl.</param>
+        /// <param name="pUserToken">Feldolgozandó token azonosító.</param>
+        /// <returns>Feldolgozás eredménye.</returns>
+        public FileDownloadReturnMessage RunCalculation(FileUploadMessage pSourceFile)
         {
             try
             {
                 if (!GetStatus(pSourceFile.UserToken))
                     throw new TextAnalyticsServiceException("Csak bejelentkezett felhasználó veheti igénybe a szolgáltatást!");
 
-				//Meghatározzuk, hogy a szerveren hova mentsük el a fájlt.
-				string file = Path.Combine(c_TextFilePath, pSourceFile.Filename);
+                //Meghatározzuk, hogy a szerveren hova mentsük el a fájlt.
+                string file = Path.Combine(c_TextFilePath, pSourceFile.Filename);
 
                 //Feltöltjük a szerverre a fájlt.
                 StreamFunc.StreamToFile(pSourceFile.FileByteStream, file);
-				
-				//Elvégezzük a fájl feldolgozását és az eredmény fájlt visszaküldjük.
-				string resultFile = r.RunCalculation(file, allLoginedUsers.Find(x => x.Token == pSourceFile.UserToken).LoginName);
+                
+                //Elvégezzük a fájl feldolgozását és az eredmény fájlt visszaküldjük.
+                string resultFile = r.RunCalculation(file, allLoginedUsers.Find(x => x.Token == pSourceFile.UserToken).LoginName);
                 return StreamToFileDownloadReturnMessage(resultFile);
             }
             catch (Exception ex)
@@ -145,36 +145,36 @@ namespace MAF.WCFTextAnalyticsService
             }
         }
 
-		#endregion
+        #endregion
 
 
-		static DataProvider r = new DataProvider();
-		static List<UserLoginedInfo> allLoginedUsers = new List<UserLoginedInfo>();
+        static DataProvider r = new DataProvider();
+        static List<UserLoginedInfo> allLoginedUsers = new List<UserLoginedInfo>();
 
-		const string c_TextFilePath = "TextFiles";
+        const string c_TextFilePath = "TextFiles";
 
-		FileDownloadReturnMessage StreamToFileDownloadReturnMessage(string resultFile)
-		{
-			FileDownloadReturnMessage fdrm;
-			FileStream stream = null;
-			try
-			{
-				stream = File.Open(resultFile, FileMode.Open);
-				MemoryStream memoryStream = new MemoryStream();
-				stream.CopyTo(memoryStream);
-				memoryStream.Position = 0;
-				fdrm = new FileDownloadReturnMessage(Path.GetFileName(resultFile), memoryStream);
-			}
-			finally
-			{
-				stream.Close();
-			}
+        FileDownloadReturnMessage StreamToFileDownloadReturnMessage(string resultFile)
+        {
+            FileDownloadReturnMessage fdrm;
+            FileStream stream = null;
+            try
+            {
+                stream = File.Open(resultFile, FileMode.Open);
+                MemoryStream memoryStream = new MemoryStream();
+                stream.CopyTo(memoryStream);
+                memoryStream.Position = 0;
+                fdrm = new FileDownloadReturnMessage(Path.GetFileName(resultFile), memoryStream);
+            }
+            finally
+            {
+                stream.Close();
+            }
 
-			return fdrm;
-		}
-	}
+            return fdrm;
+        }
+    }
 
-	[Serializable]
+    [Serializable]
     public class TextAnalyticsServiceException : Exception
     {
         public TextAnalyticsServiceException(string message) : base(message)
