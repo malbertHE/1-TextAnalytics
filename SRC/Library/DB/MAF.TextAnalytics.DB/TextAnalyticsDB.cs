@@ -80,9 +80,9 @@ namespace MAF.TextAnalytics.DB
         }
 
         /// <summary>Felhasználó beléptetése.</summary>
-		/// <param name="pLoginName">Felhasználó login neve.</param>
-		/// <param name="pPassword">Felhasználó jelszava.</param>
-		/// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
+        /// <param name="pLoginName">Felhasználó login neve.</param>
+        /// <param name="pPassword">Felhasználó jelszava.</param>
+        /// <returns>Ha létezik ilyen felhasználó és a jelszó is az, akkor igazat ad vissza.</returns>
         public override sealed bool SignIn(string pLoginName, string pPassword)
         {
             try
@@ -112,6 +112,7 @@ namespace MAF.TextAnalytics.DB
 
 
         #region Védett terület!
+        
         protected abstract bool Child_SourceFileExist(string pSourceFileMD5);
 
         protected abstract string Child_GetResultDataFile(string pSourceFileMD5);
