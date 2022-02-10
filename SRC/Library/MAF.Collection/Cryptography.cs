@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -22,23 +22,23 @@ namespace MAF.Collection
             }
         }
 
-		/// <summary>Egy szöveghez SHA512 számítás.
-		/// Váratlan eseményeknél <see cref="CryptographyException"/> hibát dob.</summary>
-		/// <param name="pInput">Szöveg.</param>
-		/// <returns>A szöveghez tartozó SHA512 kód.</returns>
-		public static string CalculateSHA512Hash(string pInput)
-		{
-			SHA512 sha512 = new SHA512Managed();
-			byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pInput);
-			byte[] hash = sha512.ComputeHash(inputBytes);
+        /// <summary>Egy szöveghez SHA512 számítás.
+        /// Váratlan eseményeknél <see cref="CryptographyException"/> hibát dob.</summary>
+        /// <param name="pInput">Szöveg.</param>
+        /// <returns>A szöveghez tartozó SHA512 kód.</returns>
+        public static string CalculateSHA512Hash(string pInput)
+        {
+            SHA512 sha512 = new SHA512Managed();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pInput);
+            byte[] hash = sha512.ComputeHash(inputBytes);
 
-			// step 2, convert byte array to hex string
-			StringBuilder sb = new StringBuilder();
-			for (int i = 0; i < hash.Length; ++i)
-			{
-				sb.Append(hash[i].ToString("X2"));
-			}
-			return sb.ToString();
-		}
-	}
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; ++i)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+    }
 }
